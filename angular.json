@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "pcds-poui:build:production"
+              "buildTarget": "pcds-poui:build:production"
             },
             "development": {
-              "browserTarget": "pcds-poui:build:development"
+              "buildTarget": "pcds-poui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pcds-poui:build"
+            "buildTarget": "pcds-poui:build"
           }
         },
         "test": {
