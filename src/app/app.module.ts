@@ -2,15 +2,43 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { PouiModule } from './core/po-ui/poui.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { ErroModule } from './core/erro/erro.module';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { ErrosInterceptor } from './core/erro/erro.interceptor';
+import { AutenticacaoInterceptor } from './autenticacao/autenticacao.interceptor';
+import { AutenticacaoModule } from "./autenticacao/autenticacao.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    PouiModule,
+    ReactiveFormsModule,
+    ErroModule,
+    AutenticacaoModule
+],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AutenticacaoInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrosInterceptor,
+      multi: true
+    }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
