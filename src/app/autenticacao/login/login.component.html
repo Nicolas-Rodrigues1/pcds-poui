@@ -1,4 +1,22 @@
 <app-banner src="assets/imagens/loginflaticon.png" alt="Banner da tela Login"></app-banner>
-<po-widget p-title="Login">
-    
-</po-widget>
+<section>
+    <div class="form-container">
+        <form [formGroup]="loginForm" #f="ngForm">
+                <po-widget p-title="Login">
+                        <po-input class="po-md-6" name="email" p-clean p-label="Email" p-required > </po-input>
+                        <!-- <po-info class="po-md-6" p-label="Email" [p-value]="loginForm.controls.value"> </po-info> -->
+                        <!-- <p-error *ngIf="loginForm.get('email')?.errors?.['required']">E-mail é obrigatório</p-error>
+                        <p-error *ngIf="loginForm.get('email')?.errors?.['email']">E-mail inválido</p-error> -->
+                    <!-- <mat-form-field appearance="outline">
+                        <p-label>Senha</p-label>
+                        <input matInput formControlName="senha" type="password" placeholder="Digite sua senha" />
+                        <p-error *ngIf="loginForm.get('senha')?.errors">Senha é obrigatória</p-error>
+                    </mat-form-field> -->
+                <p>
+                    Ainda não possui conta?
+                    <a routerLink="/auth/cadastro"><strong><u>Clique aqui para se cadastrar!</u></strong></a>
+                </p>
+            </po-widget>
+        </form>
+    </div>
+</section>
