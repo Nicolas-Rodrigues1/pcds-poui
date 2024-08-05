@@ -1,0 +1,14 @@
+{
+    "produtos": [
+      {
+        "id": 1,
+        "categoria": "placaMae",
+        "nome": "Gigabyte"
+      },
+      {
+        "id": 2,
+        "categoria": "processador",
+        "nome": "Intel"
+      }
+    ]
+}

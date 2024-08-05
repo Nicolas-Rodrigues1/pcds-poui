@@ -1,1 +1,28 @@
-<p>produto works!</p>
+<app-container>
+    <div class="po-row">
+        <po-widget>
+            <div class="grid-container">
+                <div *ngFor="let produto of listaProdutos" class="grid-item">
+                    <p>Nome: {{produto.nome}}</p>
+                    <p>Nome: {{produto.categoria}}</p>
+                    <div class="po-row">
+                        <po-button class="po-md-4" p-icon="po-icon po-icon-delete" p-label="Confirm" (p-click)="selecionarProduto(produto)" (p-click)="openExcluir()"></po-button>
+                        <po-button class="po-md-4" p-icon="po-icon po-icon-edit" p-label="Edit" (p-click)="selecionarProduto(produto)" (p-click)="openEditar()"></po-button>
+                    </div>
+                </div>
+                <div class="paginacao">
+                    <po-button class="po-md-4" [p-disabled]="page===1" p-label="Página anterior" (p-click)="paginaAnterior()"></po-button>
+                    <span>Página {{page}}</span>
+                    <po-button class="po-md-4" p-label="Próxima página" (p-click)="proximaPagina()"></po-button>
+                </div>
+            </div>
+        </po-widget>
+        <div class="buttonAdicionar">
+            <po-button p-label="Adicionar Produto" routerLink="/pages/criarProduto"></po-button>
+        </div>
+    </div>
+
+    <!-- <po-modal #modalExcluir p-title="Excluir Produto">
+        <app-excluir-produto [produto]="produtoSelecionado" (produtoExcluido)="onProdutoExcluido()"></app-excluir-produto>
+    </po-modal> -->
+</app-container>

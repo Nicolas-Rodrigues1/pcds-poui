@@ -13,7 +13,7 @@ export class SideMenuComponent {
     {label: 'Cadastros', icon: 'ph ph-user',
       subItems:[
         {label: 'Clientes', icon: 'ph ph-user'},
-        {label: 'Produtos', icon: 'ph ph-user'}
+        {label: 'Produtos', icon: 'ph ph-user', link: 'pages/produtos'}
       ]
     },
     {
