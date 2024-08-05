@@ -5,10 +5,12 @@ import { PouiModule } from "../core/po-ui/poui.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./login/login.component";
 import { AutenticacaoRoutingModule } from "./autenticacao-routing.module";
+import { CadastroComponent } from "./cadastro/cadastro.component";
 
 @NgModule({
     declarations:[
-        LoginComponent
+        LoginComponent,
+        CadastroComponent
     ],
     imports:[
         CommonModule,

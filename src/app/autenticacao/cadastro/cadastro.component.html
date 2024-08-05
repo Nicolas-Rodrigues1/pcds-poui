@@ -1,1 +1,20 @@
-<p>cadastro works!</p>
+<app-banner src="assets/imagens/cadastromagenta.png" alt="Banner da tela de Login"></app-banner>
+<app-container>
+    <div class="form-container">
+        <po-dynamic-form
+        #dynamicForm
+        p-auto-focus="nome"
+        [p-fields]="fields"
+        >
+        </po-dynamic-form>
+        <div class="po-row">
+            <po-button
+            class="po-md-3"
+            p-label="Cadastrar"
+            [p-disabled]="dynamicForm?.form?.invalid ?? false"
+            (p-click)="cadastrar(dynamicForm)"
+            >
+            </po-button>
+        </div>
+    </div>
+</app-container>

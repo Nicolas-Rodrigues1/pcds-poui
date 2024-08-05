@@ -1,22 +1,44 @@
 <app-banner src="assets/imagens/loginflaticon.png" alt="Banner da tela Login"></app-banner>
 <section>
     <div class="form-container">
-        <form [formGroup]="loginForm" #f="ngForm">
-                <po-widget p-title="Login">
-                        <po-input class="po-md-6" name="email" p-clean p-label="Email" p-required > </po-input>
-                        <!-- <po-info class="po-md-6" p-label="Email" [p-value]="loginForm.controls.value"> </po-info> -->
-                        <!-- <p-error *ngIf="loginForm.get('email')?.errors?.['required']">E-mail é obrigatório</p-error>
-                        <p-error *ngIf="loginForm.get('email')?.errors?.['email']">E-mail inválido</p-error> -->
+        <po-dynamic-form
+        #dynamicForm
+        p-auto-focus="email"
+        [p-fields]="fields"
+        >
+        </po-dynamic-form>
+        <div class="po-row">
+            <po-button
+            class="po-md-3"
+            p-label="Entrar"
+            [p-disabled]="dynamicForm?.form?.invalid ?? false"
+            (p-click)="login(dynamicForm)"
+            >
+            </po-button>
+        </div>
+    </div>
+    <div>
+        
+        <!-- <form [formGroup]="loginForm" #f="ngForm"> -->
+            <!-- <po-widget p-title="Login"> -->
+                    <!-- <po-email class="po-lg-6" formControlName="email" p-label="Email" p-clean></po-email> -->
+                    <!-- <po-input class="po-md-6" name="email" p-clean p-label="Email" p-required > </po-input> -->
+                    <!-- <span class="po-text-error" *ngIf="loginForm.get('email')?.errors?.['required']">
+                        E-mail é obrigatório
+                    </span> -->
+                    <!-- <po-info class="po-md-6" p-label="Email" [p-value]="loginForm.controls.value"> </po-info> -->
+                    <!-- <p-error *ngIf="loginForm.get('email')?.errors?.['required']">E-mail é obrigatório</p-error>
+                    <p-error *ngIf="loginForm.get('email')?.errors?.['email']">E-mail inválido</p-error> -->
                     <!-- <mat-form-field appearance="outline">
                         <p-label>Senha</p-label>
                         <input matInput formControlName="senha" type="password" placeholder="Digite sua senha" />
                         <p-error *ngIf="loginForm.get('senha')?.errors">Senha é obrigatória</p-error>
                     </mat-form-field> -->
-                <p>
-                    Ainda não possui conta?
-                    <a routerLink="/auth/cadastro"><strong><u>Clique aqui para se cadastrar!</u></strong></a>
-                </p>
-            </po-widget>
-        </form>
-    </div>
+                    <!-- <p>
+                        Ainda não possui conta?
+                        <a routerLink="/auth/cadastro"><strong><u>Clique aqui para se cadastrar!</u></strong></a>
+                    </p>
+                </po-widget> -->
+            <!-- </form> -->
+        </div>
 </section>
