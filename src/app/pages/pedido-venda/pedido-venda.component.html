@@ -4,12 +4,46 @@
         <po-button (p-click)="openModal()" p-label="Selecionar cliente para realizar o pedido"></po-button>
     </po-widget>
     <div *ngIf="clienteSelecionado">
-        <p>{{clienteSelecionado.nome}}</p>
+        <h2>Cliente selecionado</h2>
+        <p>Nome: {{clienteSelecionado.nome}}</p>
+        <p>Email: {{clienteSelecionado.email}}</p>
     </div>
-
-
-
-
+    <div *ngIf="clienteSelecionado">
+        <div>
+            <label for="categoria">Selecione por categoria:</label>
+            <select id="categoria">
+                <option value="">Todas</option>
+                <option value="processador">Processador</option>
+                <option value="placaMae">Placa Mãe</option>
+                <option value="memoriaRam">Memória RAM</option>
+                <option value="armazenamento">Armazenamento</option>
+                <option value="monitor">Monitor</option>
+                <option value="mouse">Mouse</option>
+                <option value="teclado">Teclado</option>
+            </select>
+        </div>
+        <div class="grid-container">
+            <div *ngFor="let produto of listaProdutos" class="grid-item">
+                <p>Nome: {{ produto.nome }}</p>
+                <p>Categoria: {{ produto.categoria }}</p>
+                <po-button p-label="+" (p-click)="selecionarProduto(produto)"></po-button>
+            </div>
+        </div>
+        <div class="paginacao">
+            <po-button class="po-md-4" [p-disabled]="page === 1" p-label="Página anterior" (p-click)="paginaAnterior()"></po-button>
+            <span>Página {{ page }}</span>
+            <po-button class="po-md-4" p-label="Próxima página" (p-click)="proximaPagina()"></po-button>
+        </div>
+        <div *ngIf="listaProdutosCarrinho.length !== 0" class="carrinho">
+            <h2>Carrinho</h2>
+            <div class="produto-carrinho" *ngFor="let produto of listaProdutosCarrinhoShow">
+              <p>Nome: {{ produto.nome }}</p>
+              <p>Categoria: {{ produto.categoria }}</p>
+              <po-button (p-click)="removerProduto(produto)" p-label="-"></po-button>
+            </div>
+            <button class="realizar-pedido-button" (click)="realizarPedido()" [disabled]="listaProdutosCarrinho.length === 0">Realizar pedido</button>
+          </div>
+    </div>
     <po-modal #modalCliente p-title="Selecione o cliente">
         <po-widget>
             <div class="grid-container">
