@@ -11,13 +11,15 @@ import { ProdutoService } from '../../services/produto.service';
 })
 export class ExcluirProdutoComponent{
 
-  // @Input() produto!: Produto;
+  @Input() produto!: Produto;
   
-  produto: Produto = {
-    id: 0,
-    nome: '',
-    categoria: ''
-  }
+  // @Input() produto: Produto = {
+  //   id: 0,
+  //   nome: '',
+  //   categoria: ''
+  // }
+
+  constructor(private produtoService: ProdutoService){}
 
   // constructor(
   //   private produtoService: ProdutoService,
@@ -26,6 +28,14 @@ export class ExcluirProdutoComponent{
   // ){
   //   this.produto = data.produto
   // }
+
+  excluirProduto(): void {
+    this.produtoService.excluir(this.produto.id).subscribe((produto) => {
+      console.log('excluiu')
+      console.log(produto)
+      // this.produtoExcluido.emit();
+    });
+  }
 
   // excluirProduto(){
   //   this.produtoService.excluir(this.produto.id).subscribe(() => {

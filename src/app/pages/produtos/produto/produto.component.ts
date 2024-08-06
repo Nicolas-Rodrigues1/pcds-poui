@@ -1,12 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 // import { MatDialog } from '@angular/material/dialog';
-import { ExcluirProdutoComponent } from '../excluir-produto/excluir-produto.component';
-import { MensagemService } from 'src/app/core/services/mensagem.service';
-import { EditarProdutoComponent } from '../editar-produto/editar-produto.component';
 import { Produto } from 'src/app/core/types/type';
 import { ProdutoService } from '../../services/produto.service';
-import { PoModalComponent } from '@po-ui/ng-components';
+import { PoDynamicFormField, PoModalComponent } from '@po-ui/ng-components';
 
 
 @Component({
@@ -15,6 +12,9 @@ import { PoModalComponent } from '@po-ui/ng-components';
   styleUrls: ['./produto.component.scss']
 })
 export class ProdutoComponent implements OnInit{
+  @ViewChild('modalExcluir') modalExcluir!: PoModalComponent;
+  @ViewChild('modalEditar') modalEditar!: PoModalComponent;
+
   listaProdutos: Produto[] = [];
   produtoSelecionado: Produto | null = null;
   page = 1;
@@ -27,11 +27,32 @@ export class ProdutoComponent implements OnInit{
     nome: ''
   }
 
+  fields: Array<PoDynamicFormField> = [
+    {
+      property: 'nome',
+      required: true,
+      icon: 'ph ph-envelope',
+      placeholder: 'Digite o nome do produto'
+    },
+    {
+      property: 'categoria',
+      required: true,
+      options: [
+        {categoria: 'Processador', code: 'processador'},
+        {categoria: 'Placa Mãe', code: 'placaMae'},
+        {categoria: 'Memória Ram', code: 'memoriaRam'},
+        {categoria: 'Armazenamento', code: 'armazenamento'},
+        {categoria: 'Mouse', code: 'mouse'},
+        {categoria: 'Teclado', code: 'teclado'},
+        {categoria: 'Monitor', code: 'monitor'},
+      ],
+      fieldLabel: 'Selecione a categoria',
+      fieldValue: 'code'
+    }
+  ]
+
   constructor(
-    private produtoService: ProdutoService,
-    // private dialog: MatDialog,
-    private mensagemService: MensagemService,
-    // private modal: PoModalComponent
+    private produtoService: ProdutoService
   ){}
 
   ngOnInit():void {
@@ -48,35 +69,41 @@ export class ProdutoComponent implements OnInit{
     this.produtoSelecionado = produto
   }
 
-  openExcluir(){
-    // this.modal.open()
-    // // const dialogRef = this.dialog.open(ExcluirProdutoComponent, {
-    // //   width: '50%',
-    // //   data: { produto: this.produtoSelecionado }
-    // // })
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if(result === 'excluido'){
-    //     console.log('Produto excluído com sucesso')
-    //     // this.mensagemService.openSnackBar('Produto excluído com sucesso')
-    //     this.listarProdutos()
-    //   }
-    // })
+  openExcluir(produto: Produto){
+    this.produto = produto
+    this.modalExcluir.open()
+    // console.log(this.produto)
   }
 
-  openEditar(){
+  excluirProduto(){
+    this.produtoService.excluir(this.produto.id).subscribe(() => {
+      console.log('Produto excluído com sucesso')
+      this.modalExcluir.close();
+      this.listarProdutos()
+    })
+  }
 
-    // const dialogRef = this.dialog.open(EditarProdutoComponent,{
-    //   width: '50%',
-    //   data: { produto: this.produtoSelecionado }
-    // })
+  openEditar(produto: Produto){
+    this.produto = produto
+    this.modalEditar.open()
+    
+  }
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if(result === 'editado'){
-    //     console.log('Produto editado com sucesso')
-    //     // this.mensagemService.openSnackBar('Produto editado com sucesso')
-    //   }
-    // })
+  editarProduto(){
+    this.produtoService.editar(this.produto).subscribe(() =>{
+      console.log('Produto editado')
+      console.log(this.produto)
+      this.modalEditar.close()
+      this.listarProdutos()
+    })
+  }
+
+  cancelar(){
+    if(this.modalExcluir){
+      this.modalExcluir.close()
+    } else {
+      this.modalEditar.close()
+    }
   }
 
   proximaPagina(): void{
