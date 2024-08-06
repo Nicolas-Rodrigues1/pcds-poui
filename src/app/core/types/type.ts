@@ -31,3 +31,10 @@ export interface Clientelogin{
     email: string;
     senha: string;
 }
+
+export interface Pedido{
+    idPedido: number,
+    status: string,
+    cliente: number,
+    produto: number[]
+}

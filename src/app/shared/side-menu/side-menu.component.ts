@@ -12,8 +12,8 @@ export class SideMenuComponent {
   menus: Array<PoMenuItem> = [
     {label: 'Cadastros', icon: 'ph ph-user',
       subItems:[
-        {label: 'Clientes', icon: 'ph ph-user'},
-        {label: 'Produtos', icon: 'ph ph-user', link: 'pages/produtos'}
+        {label: 'Clientes', icon: 'ph ph-user', link: '/pages/clientes'},
+        {label: 'Produtos', icon: 'ph ph-user', link: '/pages/produtos'}
       ]
     },
     {

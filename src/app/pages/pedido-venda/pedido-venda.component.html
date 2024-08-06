@@ -1,1 +1,31 @@
-<p>pedido-venda works!</p>
+<app-side-menu></app-side-menu>
+<app-container>
+    <po-widget>
+        <po-button (p-click)="openModal()" p-label="Selecionar cliente para realizar o pedido"></po-button>
+    </po-widget>
+    <div *ngIf="clienteSelecionado">
+        <p>{{clienteSelecionado.nome}}</p>
+    </div>
+
+
+
+
+    <po-modal #modalCliente p-title="Selecione o cliente">
+        <po-widget>
+            <div class="grid-container">
+                <div *ngFor="let cliente of listaClientes" class="grid-item">
+                    <p>Nome: {{ cliente.nome}}</p>
+                    <p>Email: {{ cliente.email }}</p>
+                    <p>CPF: {{ cliente.cpf }}</p>
+                    <p>Telefone: {{ cliente.telefone }}</p>
+                    <po-button (p-click)="selecionarCliente(cliente)" p-label="X" ></po-button>
+                </div>
+            </div>
+            <div class="paginacao">
+                <po-button class="po-md-4" [p-disabled]="page === 1" p-label="Página anterior" (p-click)="paginaAnterior()"></po-button>
+                <span>Página {{ page }}</span>
+                <po-button class="po-md-4" p-label="Próxima página" (p-click)="proximaPagina()"></po-button>
+            </div>
+        </po-widget>
+    </po-modal>
+</app-container>
