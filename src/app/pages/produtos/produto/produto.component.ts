@@ -20,7 +20,6 @@ export class ProdutoComponent implements OnInit{
   page = 1;
   pageSize = 12;
 
-  @Input() title = 'Como gostaria de manejar os produtos?';
   @Input() produto: Produto = {
     id: 0,
     categoria: '',
@@ -101,6 +100,7 @@ export class ProdutoComponent implements OnInit{
   cancelar(){
     this.modalEditar.close()
     this.modalExcluir.close()
+    this.listarProdutos()
   }
 
   proximaPagina(): void{

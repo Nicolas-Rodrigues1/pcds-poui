@@ -30,15 +30,15 @@
         </po-widget>
     </div>
 
-    <po-modal #modalExcluir p-title="Excluir Produto">
+    <po-modal #modalExcluir p-title="Excluir Cliente">
         <p>
-            O produto {{ clienteSelecionado?.nome }} será apagado. Confirmar exclusão?
+            O cliente {{ clienteSelecionado?.nome }} será apagado. Confirmar exclusão?
         </p>
         <po-button class="po-md-3" p-label="Confirmar" (p-click)="excluirCliente()"></po-button>
         <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
     </po-modal>
 
-    <po-modal #modalEditar p-title="Editar Produto">
+    <po-modal #modalEditar p-title="Editar Cliente">
         <p>Altere os dados que desejar</p>
         <po-widget>
             <po-dynamic-form #dynamicForm p-auto-focus="nome" [p-fields]="fields"

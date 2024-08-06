@@ -17,10 +17,9 @@ export class ClienteComponent implements OnInit{
   page = 1;
   pageSize = 8;
 
-  @Input() title = 'Como gostaria de manejar os clientes?'
   @Input() cliente: Cliente = {
     id: 0,
-    nome: 'teste',
+    nome: '',
     nascimento: '',
     cpf: '',
     cep: '',
@@ -76,7 +75,7 @@ export class ClienteComponent implements OnInit{
   constructor(private clienteService: ClienteService){}
 
   ngOnInit(): void {
-
+    this.listarClientes()
   }
 
   listarClientes(): void{
@@ -118,6 +117,7 @@ export class ClienteComponent implements OnInit{
   cancelar(){
     this.modalEditar.close()
     this.modalExcluir.close()
+    this.listarClientes()
   }
 
   proximaPagina(): void{
