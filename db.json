@@ -1,14 +1,24 @@
 {
-    "produtos": [
-      {
-        "id": 1,
-        "categoria": "placaMae",
-        "nome": "Gigabyte"
-      },
-      {
-        "id": 2,
-        "categoria": "processador",
-        "nome": "Intel"
-      }
-    ]
+  "produtos": [
+    {
+      "id": 1,
+      "categoria": "placaMae",
+      "nome": "Gigabyte"
+    },
+    {
+      "id": 2,
+      "categoria": "processador",
+      "nome": "Intel"
+    },
+    {
+      "id": 715115228,
+      "nome": "Intel",
+      "categoria": "mouse"
+    },
+    {
+      "id": 883503839,
+      "nome": "Adasdsa",
+      "categoria": "memoriaRam"
+    }
+  ]
 }
