@@ -99,11 +99,8 @@ export class ProdutoComponent implements OnInit{
   }
 
   cancelar(){
-    if(this.modalExcluir){
-      this.modalExcluir.close()
-    } else {
-      this.modalEditar.close()
-    }
+    this.modalEditar.close()
+    this.modalExcluir.close()
   }
 
   proximaPagina(): void{
