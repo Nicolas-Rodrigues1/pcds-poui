@@ -20,8 +20,6 @@ export class CriarProdutoComponent implements OnInit{
     categoria: ''
   }
 
-  validateFields: Array<string> = ['categoria'];
-  
   fields: Array<PoDynamicFormField> = [
     {
       property: 'nome',
@@ -53,7 +51,6 @@ export class CriarProdutoComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    console.log(this.produto)
   }
 
   criarProduto(){

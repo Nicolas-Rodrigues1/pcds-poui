@@ -1,1 +1,50 @@
-<p>cliente works!</p>
+<app-container>
+    <div class="po-row">
+        <po-widget>
+            <div class="grid-container">
+                <div *ngFor="let cliente of listaClientes" class="grid-item">
+                    <p>Nome: {{ cliente.nome }}</p>
+                    <p>Email: {{ cliente.email }}</p>
+                    <p>CPF: {{ cliente.cpf }}</p>
+                    <p>CEP: {{ cliente.cep }}</p>
+                    <p>Telefone: {{ cliente.telefone }}</p>
+                    <p>Genero: {{ cliente.genero }}</p>
+                    <p>Data de nascimento: {{ cliente.nascimento }}</p>
+                    <div class="po-row">
+                        <po-button class="po-md-4" p-icon="po-icon po-icon-delete" p-label="Excluir"
+                            (p-click)="selecionarCliente(cliente)" (p-click)="openExcluir(cliente)"></po-button>
+                        <po-button class="po-md-4" p-icon="po-icon po-icon-edit" p-label="Editar"
+                            (p-click)="selecionarCliente(cliente)" (p-click)="openEditar(cliente)"></po-button>
+                    </div>
+                </div>
+                <div class="buttonAdicionar">
+                    <po-button p-label="Adicionar Cliente" routerLink="/pages/criarCliente"></po-button>
+                </div>
+                <div class="paginacao">
+                    <po-button class="po-md-4" [p-disabled]="page === 1" p-label="Página anterior"
+                        (p-click)="paginaAnterior()"></po-button>
+                    <span>Página {{ page }}</span>
+                    <po-button class="po-md-4" p-label="Próxima página" (p-click)="proximaPagina()"></po-button>
+                </div>
+            </div>
+        </po-widget>
+    </div>
+
+    <po-modal #modalExcluir p-title="Excluir Produto">
+        <p>
+            O produto {{ clienteSelecionado?.nome }} será apagado. Confirmar exclusão?
+        </p>
+        <po-button class="po-md-3" p-label="Confirmar" (p-click)="excluirCliente()"></po-button>
+        <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+    </po-modal>
+
+    <po-modal #modalEditar p-title="Editar Produto">
+        <p>Altere os dados que desejar</p>
+        <po-widget>
+            <po-dynamic-form #dynamicForm p-auto-focus="nome" [p-fields]="fields"
+                [p-value]="clienteSelecionado"></po-dynamic-form>
+            <po-button class="po-md-3" p-label="Confirmar" (p-click)="editarCliente()"></po-button>
+            <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+        </po-widget>
+    </po-modal>
+</app-container>

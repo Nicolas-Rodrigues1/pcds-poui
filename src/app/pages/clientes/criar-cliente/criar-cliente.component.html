@@ -1,1 +1,25 @@
-<p>criar-cliente works!</p>
+<app-container>
+    <po-widget>
+        <po-dynamic-form
+        #dynamicForm
+        p-auto-focus="nome"
+        [p-fields]="fields"
+        [p-value]="cliente"
+        >
+
+    </po-dynamic-form>
+    <po-button
+    class="po-md-3"
+    p-label="Adicionar cliente"
+    [p-disabled]="dynamicForm?.form?.invalid ?? false"
+    (p-click)="criarCliente()"
+    >
+    </po-button>
+    <po-button
+    class="po-md-3"
+    p-label="Cancelar"
+    (p-click)="cancelar()"
+    >
+    </po-button>
+    </po-widget>
+</app-container>

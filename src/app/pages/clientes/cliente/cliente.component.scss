@@ -1,0 +1,78 @@
+:host {
+    display: block;
+    padding: 20px;
+  
+    .po-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+  
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      justify-content: center;
+    }
+  
+    .grid-item {
+      background-color: #fff;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+  
+      p {
+        margin: 5px 0;
+      }
+  
+      .po-row {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+      }
+    }
+  
+    .paginacao {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+  
+      span {
+        margin: 0 10px;
+      }
+    }
+  
+    .buttonAdicionar {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  
+    po-modal {
+      text-align: center;
+  
+      p {
+        margin-bottom: 20px;
+      }
+  
+      .po-md-3 {
+        margin-right: 10px;
+      }
+    }
+  
+    po-button {
+      &.po-md-4, &.po-md-3 {
+        background-color: #007bff;
+        color: white;
+  
+        &:hover {
+          background-color: #0056b3;
+          border-color: #0056b3;
+        }
+      }
+    }
+  }
+  
