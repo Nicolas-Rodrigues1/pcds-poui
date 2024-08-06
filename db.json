@@ -48,7 +48,23 @@
       "genero": "masculino"
     }
   ],
-  "pedidos":[
-    
+  "pedidos": [
+    {
+      "status": "Pendente",
+      "cliente": 26327681,
+      "produto": [
+        2,
+        1
+      ],
+      "id": 1
+    },
+    {
+      "status": "Pendente",
+      "cliente": 44025360,
+      "produto": [
+        2
+      ],
+      "id": 2
+    }
   ]
 }

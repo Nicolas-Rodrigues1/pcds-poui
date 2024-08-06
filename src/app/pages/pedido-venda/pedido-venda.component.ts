@@ -27,7 +27,6 @@ export class PedidoVendaComponent implements OnInit{
   clienteSelecionado: Cliente | null = null;
   produtoSelecionado: Produto | null = null;
   status = 'Pendente';
-  idPedido = 1;
 
   listaProdutosCarrinho: number[] = []
   listaProdutosCarrinhoShow: Produto[] = []
@@ -118,7 +117,6 @@ export class PedidoVendaComponent implements OnInit{
     console.log(this.produtoSelecionado)
     if(this.clienteSelecionado && this.produtoSelecionado){
       const novoPedido: Pedido = {
-        idPedido: this.idPedido++,
         status: this.status,
         cliente: this.clienteSelecionado.id,
         produto: this.listaProdutosCarrinho
