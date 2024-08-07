@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { PouiModule } from './core/po-ui/poui.module';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { ErroModule } from './core/erro/erro.module';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ErrosInterceptor } from './core/erro/erro.interceptor';
 import { AutenticacaoInterceptor } from './autenticacao/autenticacao.interceptor';
 import { AutenticacaoModule } from "./autenticacao/autenticacao.module";
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { AutenticacaoModule } from "./autenticacao/autenticacao.module";
     ReactiveFormsModule,
     ErroModule,
     AutenticacaoModule
-],
+  ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
     {

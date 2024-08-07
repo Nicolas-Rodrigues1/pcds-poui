@@ -39,13 +39,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2.5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 }
               ],
               "outputHashing": "all"
@@ -99,7 +99,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@po-ui/style/css/po-theme-default.min.css",
+              "node_modules/@po-ui/style/css/po-theme-minimal.min.css",
+              "node_modules/@po-ui/style/css/po-theme-classic.min.css",
+              "node_modules/@po-ui/style/css/po-theme-po.min.css"
             ],
             "scripts": []
           }
