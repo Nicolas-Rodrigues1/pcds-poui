@@ -5,6 +5,7 @@ import { CriarProdutoComponent } from "./produtos/criar-produto/criar-produto.co
 import { CriarClienteComponent } from "./clientes/criar-cliente/criar-cliente.component";
 import { ClienteComponent } from "./clientes/cliente/cliente.component";
 import { PedidoVendaComponent } from "./pedido-venda/pedido-venda.component";
+import { ListarVendasComponent } from "./listar-vendas/listar-vendas.component";
 
 const routes: Routes = [
     {
@@ -27,6 +28,10 @@ const routes: Routes = [
         path: 'pedidos-venda',
         component: PedidoVendaComponent
     },
+    {
+        path: 'listar-vendas',
+        component: ListarVendasComponent
+    }
 ]
 
 @NgModule({

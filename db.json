@@ -16,6 +16,33 @@
       "categoria": "mouse"
     }
   ],
+  "login": [
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 1
+    },
+    {
+      "id": 502676766,
+      "email": "pedro@email.com",
+      "senha": "123"
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676767
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676768
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676769
+    }
+  ],
   "clientes": [
     {
       "id": 26327681,
@@ -46,25 +73,46 @@
       "telefone": "42323213232",
       "email": "ana@email.com",
       "genero": "masculino"
+    },
+    {
+      "id": 502676766,
+      "nome": "pedro",
+      "nascimento": "2002-09-12",
+      "cpf": "12331234123",
+      "cep": "13123123",
+      "telefone": "31231241242",
+      "email": "pedro@email.com",
+      "genero": "masculino"
     }
   ],
   "pedidos": [
     {
+      "id": 846333203,
       "status": "Pendente",
       "cliente": 26327681,
       "produto": [
-        2,
-        1
-      ],
-      "id": 1
+        1,
+        2
+      ]
     },
     {
+      "id": 963449310,
       "status": "Pendente",
       "cliente": 44025360,
       "produto": [
-        2
-      ],
-      "id": 2
+        1,
+        2,
+        715115228
+      ]
+    },
+    {
+      "id": 693693230,
+      "status": "Pendente",
+      "cliente": 502676766,
+      "produto": [
+        2,
+        715115228
+      ]
     }
   ]
 }

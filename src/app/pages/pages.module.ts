@@ -9,6 +9,7 @@ import { CriarProdutoComponent } from "./produtos/criar-produto/criar-produto.co
 import { ClienteComponent } from "./clientes/cliente/cliente.component";
 import { CriarClienteComponent } from "./clientes/criar-cliente/criar-cliente.component";
 import { PedidoVendaComponent } from "./pedido-venda/pedido-venda.component";
+import { ListarVendasComponent } from "./listar-vendas/listar-vendas.component";
 
 @NgModule({
     declarations:[
@@ -16,7 +17,8 @@ import { PedidoVendaComponent } from "./pedido-venda/pedido-venda.component";
         CriarProdutoComponent,
         ClienteComponent,
         CriarClienteComponent,
-        PedidoVendaComponent
+        PedidoVendaComponent,
+        ListarVendasComponent
     ],
     imports:[
         CommonModule,

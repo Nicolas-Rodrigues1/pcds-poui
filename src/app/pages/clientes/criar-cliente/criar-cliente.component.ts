@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PoDynamicFormField } from '@po-ui/ng-components';
 import { ClienteService } from '../../services/cliente.service';
 import { Router } from '@angular/router';
+import { Clientelogin } from 'src/app/core/types/type';
 
 @Component({
   selector: 'app-criar-cliente',
@@ -18,6 +19,12 @@ export class CriarClienteComponent implements OnInit{
     telefone: '',
     email: '',
     genero: ''
+  }
+
+  clienteLogin: Clientelogin = {
+    id: 0,
+    email: '',
+    senha: '123'
   }
 
   fields: Array<PoDynamicFormField> = [
@@ -77,10 +84,17 @@ export class CriarClienteComponent implements OnInit{
     const cliente = this.cliente
     if (cliente.id === 0){
       cliente.id = Math.floor(Math.random() * 1000000000);
+      this.clienteService.criar(cliente).subscribe(() => {
+        this.clienteLogin.id = this.cliente.id
+        this.clienteLogin.email = this.cliente.email
+        this.criarLoginCliente();
+        this.router.navigate(['/pages/clientes'])
+      })
     }
-    console.log(cliente)
-    this.clienteService.criar(cliente).subscribe(() => {
-      this.router.navigate(['/pages/clientes'])
+  }
+
+  criarLoginCliente(){
+    this.clienteService.criarLogin(this.clienteLogin).subscribe(() =>{
     })
   }
 

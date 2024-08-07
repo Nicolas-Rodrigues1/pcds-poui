@@ -42,9 +42,9 @@ export class ClienteService {
     return this.http.put<Cliente>(url, cliente)
   }
 
-  criarLogin(email: string, senha: string): Observable<Clientelogin>{
-    const params = {email, senha}
-    return this.http.post<Clientelogin>(`${this.apiUrlLogin}/login`, params)
+  criarLogin(clienteLogin: Clientelogin): Observable<Clientelogin>{
+    // const params = {email, senha}
+    return this.http.post<Clientelogin>(`${this.apiUrlLogin}/login`, clienteLogin)
   }
 
 

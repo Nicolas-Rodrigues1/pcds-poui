@@ -55,17 +55,17 @@ export class LoginComponent {
     console.log('E-mail:', email);
     console.log('Senha:', senha);
 
-    // this.authService.autenticar(email, senha).subscribe({
-    //   next: (value) => {
-    //     console.log('Autenticado', value);
-    //     this.router.navigateByUrl('/auth/home');
-    //     dynamicForm.form.reset();
-    //   },
-    //   error: (err) => {
-    //     console.log('Problema', err);
-    //   }
-    // });
+    this.authService.autenticar(email, senha).subscribe({
+      next: (value) => {
+        console.log('Autenticado', value);
+        this.router.navigateByUrl('/auth/home');
+        dynamicForm.form.reset();
+      },
+      error: (err) => {
+        console.log('Problema', err);
+      }
+    });
 
-    // this.emailService.setEmail(email);
+    this.emailService.setEmail(email);
   }
 }

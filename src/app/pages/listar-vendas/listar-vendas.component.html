@@ -1,1 +1,15 @@
-<p>listar-vendas works!</p>
+<app-side-menu></app-side-menu>
+<app-container>
+    <po-widget p-title="Esses são seus pedidos">
+        <div class="grid-container">
+            <div *ngFor="let pedido of listaPedidos" class="grid-item">
+                <p>Id do pedido: {{pedido.id}}</p>
+                    <p>Status: {{pedido.status}}</p>
+                    <p>Produtos:</p>
+                    <li *ngFor="let produtoId of pedido.produto">
+                        {{ getProdutoNome(produtoId) }}
+                    </li>
+            </div>
+        </div>
+    </po-widget>
+</app-container>

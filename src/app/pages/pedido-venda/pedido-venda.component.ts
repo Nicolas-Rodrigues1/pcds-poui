@@ -117,6 +117,7 @@ export class PedidoVendaComponent implements OnInit{
     console.log(this.produtoSelecionado)
     if(this.clienteSelecionado && this.produtoSelecionado){
       const novoPedido: Pedido = {
+        id: Math.floor(Math.random() * 1000000000),
         status: this.status,
         cliente: this.clienteSelecionado.id,
         produto: this.listaProdutosCarrinho

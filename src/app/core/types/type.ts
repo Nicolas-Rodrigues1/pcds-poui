@@ -33,6 +33,7 @@ export interface Clientelogin{
 }
 
 export interface Pedido{
+    id: number,
     status: string,
     cliente: number,
     produto: number[]

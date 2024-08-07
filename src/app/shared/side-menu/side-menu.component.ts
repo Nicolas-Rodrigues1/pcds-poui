@@ -19,8 +19,8 @@ export class SideMenuComponent {
     {
       label: 'Pedidos', icon: 'ph ph-user',
       subItems:[
-        {label: 'Realizar pedidos', icon: 'ph ph-user'},
-        {label: 'Meus pedidos', icon: 'ph ph-user'},
+        {label: 'Realizar pedidos', icon: 'ph ph-user', link: '/pages/pedidos-venda'},
+        {label: 'Meus pedidos', icon: 'ph ph-user', link: '/pages/listar-vendas'},
       ]
     }
   ]
