@@ -45,8 +45,7 @@ export class CriarProdutoComponent implements OnInit{
 
   constructor(
     private produtoService: ProdutoService,
-    private router: Router,
-    private mensagemService: MensagemService 
+    private router: Router
   ) {}
 
   ngOnInit(): void {

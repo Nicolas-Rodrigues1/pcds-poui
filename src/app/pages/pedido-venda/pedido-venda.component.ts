@@ -95,7 +95,7 @@ export class PedidoVendaComponent implements OnInit {
       } else {
         this.produtosFiltrados = [...this.listaProdutos];
       }
-      console.log('Produtos filtrados:', this.produtosFiltrados); 
+      // console.log('Produtos filtrados:', this.produtosFiltrados); 
     } else {
       this.produtosFiltrados = this.listaProdutos
       this.listarProdutos()
