@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PoMenuItem } from '@po-ui/ng-components';
+import { UserService } from 'src/app/autenticacao/services/user.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -25,6 +27,14 @@ export class SideMenuComponent {
     }
   ]
 
-  constructor(){}
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ){}
+
+  logout(){
+    this.userService.logout();
+    this.router.navigateByUrl('/auth/login');
+  }
 
 }
