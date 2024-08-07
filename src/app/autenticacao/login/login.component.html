@@ -1,20 +1,18 @@
-<app-banner src="assets/imagens/loginflaticon.png" alt="Banner da tela Login"></app-banner>
-<section>
-    <div class="form-container">
-        <po-dynamic-form
-        #dynamicForm
-        p-auto-focus="email"
-        [p-fields]="fields"
-        >
-        </po-dynamic-form>
-        <div class="po-row">
-            <po-button
-            class="po-md-3"
-            p-label="Entrar"
-            [p-disabled]="dynamicForm?.form?.invalid ?? false"
-            (p-click)="login(dynamicForm)"
-            >
-            </po-button>
-        </div>
+<section class="login-section">
+  <div class="form-container">
+    <po-dynamic-form
+      #dynamicForm
+      p-auto-focus="email"
+      [p-fields]="fields"
+    ></po-dynamic-form>
+    
+    <div class="po-row button-container">
+      <po-button
+        class="po-md-3"
+        p-label="Entrar"
+        [p-disabled]="dynamicForm?.form?.invalid ?? false"
+        (p-click)="login(dynamicForm)"
+      ></po-button>
     </div>
+  </div>
 </section>

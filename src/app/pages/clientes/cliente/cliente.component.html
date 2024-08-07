@@ -1,4 +1,4 @@
-<app-side-menu ></app-side-menu>
+<app-side-menu></app-side-menu>
 <app-container>
     <div class="po-row">
         <po-widget>
@@ -9,9 +9,9 @@
                     <p>CPF: {{ cliente.cpf }}</p>
                     <p>CEP: {{ cliente.cep }}</p>
                     <p>Telefone: {{ cliente.telefone }}</p>
-                    <p>Genero: {{ cliente.genero }}</p>
-                    <p>Data de nascimento: {{ cliente.nascimento }}</p>
-                    <div class="po-row">
+                    <p>Gênero: {{ cliente.genero }}</p>
+                    <p>Data de nascimento: {{ cliente.nascimento | date }}</p>
+                    <div class="po-row button-group">
                         <po-button class="po-md-4" p-icon="po-icon po-icon-delete" p-label="Excluir"
                             (p-click)="selecionarCliente(cliente)" (p-click)="openExcluir(cliente)"></po-button>
                         <po-button class="po-md-4" p-icon="po-icon po-icon-edit" p-label="Editar"
@@ -32,11 +32,11 @@
     </div>
 
     <po-modal #modalExcluir p-title="Excluir Cliente">
-        <p>
-            O cliente {{ clienteSelecionado?.nome }} será apagado. Confirmar exclusão?
-        </p>
-        <po-button class="po-md-3" p-label="Confirmar" (p-click)="excluirCliente()"></po-button>
-        <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+        <p>O cliente {{ clienteSelecionado?.nome }} será apagado. Confirmar exclusão?</p>
+        <div class="po-row modal-buttons">
+            <po-button class="po-md-3" p-label="Confirmar" (p-click)="excluirCliente()"></po-button>
+            <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+        </div>
     </po-modal>
 
     <po-modal #modalEditar p-title="Editar Cliente">
@@ -44,8 +44,11 @@
         <po-widget>
             <po-dynamic-form #dynamicForm p-auto-focus="nome" [p-fields]="fields"
                 [p-value]="clienteSelecionado"></po-dynamic-form>
-            <po-button class="po-md-3" p-label="Confirmar" (p-click)="editarCliente()"></po-button>
-            <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+            <div class="po-row modal-buttons">
+                <po-button class="po-md-3" p-label="Confirmar" (p-click)="editarCliente()"></po-button>
+                <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+            </div>
         </po-widget>
     </po-modal>
 </app-container>
+    

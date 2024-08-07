@@ -1,14 +1,16 @@
-<app-side-menu ></app-side-menu>
+<app-side-menu></app-side-menu>
 <app-container>
     <po-widget p-title="Esses são seus pedidos">
         <div class="grid-container">
             <div *ngFor="let pedido of listaPedidos" class="grid-item">
-                <p>Id do pedido: {{pedido.id}}</p>
-                    <p>Status: {{pedido.status}}</p>
-                    <p>Produtos:</p>
+                <h3>Id do pedido: {{ pedido.id }}</h3>
+                <p>Status: {{ pedido.status }}</p>
+                <p>Produtos:</p>
+                <ul class="produto-list">
                     <li *ngFor="let produtoId of pedido.produto">
                         {{ getProdutoNome(produtoId) }}
                     </li>
+                </ul>
             </div>
         </div>
     </po-widget>

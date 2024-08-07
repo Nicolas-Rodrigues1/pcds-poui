@@ -1,0 +1,37 @@
+app-container {
+    margin-left: 20%;
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .grid-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .grid-item h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+  }
+
+  .produto-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .produto-list li {
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .produto-list li:last-child {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,21 @@
+app-container{
+    margin: 10%;
+    
+    .po-widget {
+    padding: 16px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-actions po-button {
+    margin-right: 8px; // Optional, adds space between buttons
+}
+  
+}

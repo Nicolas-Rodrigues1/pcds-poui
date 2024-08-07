@@ -1,0 +1,14 @@
+app-banner {
+    display: flex;
+    margin-left: 20%;
+    justify-content: center; /* Centraliza a imagem horizontalmente */
+    align-items: center; /* Centraliza a imagem verticalmente */
+    height: 750px; /* Ajuste a altura conforme necessário */
+    overflow: hidden; /* Garante que a imagem não ultrapasse o contêiner */
+    
+    img {
+      max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+      height: auto; /* Mantém a proporção da imagem */
+    }
+  }
+  
