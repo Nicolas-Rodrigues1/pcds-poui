@@ -7,10 +7,12 @@
                     <p>Nome: {{ produto.nome }}</p>
                     <p>Categoria: {{ produto.categoria }}</p>
                     <div class="po-row">
-                        <po-button class="po-md-4" p-icon="po-icon po-icon-delete" p-label="Excluir"
-                            (p-click)="selecionarProduto(produto)" (p-click)="openExcluir(produto)"></po-button>
-                        <po-button class="po-md-4" p-icon="po-icon po-icon-edit" p-label="Editar"
-                            (p-click)="selecionarProduto(produto)" (p-click)="openEditar(produto)"></po-button>
+                        <po-button class="po-md-4" p-icon="po-icon po-icon-delete"
+                            (p-click)="selecionarProduto(produto)" (p-click)="openExcluir(produto)">
+                        </po-button>
+                        <po-button class="po-md-4" p-icon="po-icon po-icon-edit"
+                            (p-click)="selecionarProduto(produto)" (p-click)="openEditar(produto)">
+                        </po-button>
                     </div>
                 </div>
                 <div class="buttonAdicionar">

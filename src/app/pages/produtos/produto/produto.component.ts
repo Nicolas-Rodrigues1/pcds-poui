@@ -45,7 +45,7 @@ export class ProdutoComponent implements OnInit{
         {categoria: 'Teclado', code: 'teclado'},
         {categoria: 'Monitor', code: 'monitor'},
       ],
-      fieldLabel: 'Selecione a categoria',
+      fieldLabel: 'categoria',
       fieldValue: 'code'
     }
   ]

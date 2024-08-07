@@ -31,15 +31,15 @@ export class CriarProdutoComponent implements OnInit{
       property: 'categoria',
       required: true,
       options: [
-        {categoria: 'Processador', code: 'processador'},
-        {categoria: 'Placa Mãe', code: 'placaMae'},
-        {categoria: 'Memória Ram', code: 'memoriaRam'},
-        {categoria: 'Armazenamento', code: 'armazenamento'},
-        {categoria: 'Mouse', code: 'mouse'},
-        {categoria: 'Teclado', code: 'teclado'},
-        {categoria: 'Monitor', code: 'monitor'},
+        { categoria: 'Processador', code: 'processador'},
+        { categoria: 'Placa Mãe', code: 'placaMae'},
+        { categoria: 'Memória Ram', code: 'memoriaRam'},
+        { categoria: 'Armazenamento', code: 'armazenamento'},
+        { categoria: 'Mouse', code: 'mouse'},
+        { categoria: 'Teclado', code: 'teclado'},
+        { categoria: 'Monitor', code: 'monitor'},
       ],
-      fieldLabel: 'Selecione a categoria',
+      fieldLabel: 'categoria',
       fieldValue: 'code'
     }
   ]
