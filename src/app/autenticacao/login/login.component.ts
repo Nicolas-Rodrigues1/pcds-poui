@@ -11,6 +11,7 @@ import { PoDynamicFormComponent, PoDynamicFormField } from '@po-ui/ng-components
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  
 
   fields: Array<PoDynamicFormField> = [
     {
