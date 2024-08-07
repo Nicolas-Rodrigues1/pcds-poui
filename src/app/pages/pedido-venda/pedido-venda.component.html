@@ -12,22 +12,25 @@
     </div>
 
     <div *ngIf="clienteSelecionado" class="produtos-container">
-        <div class="categoria-select">
-            <label for="categoria">Selecione por categoria:</label>
-            <select id="categoria">
-                <option value="">Todas</option>
-                <option value="processador">Processador</option>
-                <option value="placaMae">Placa Mãe</option>
-                <option value="memoriaRam">Memória RAM</option>
-                <option value="armazenamento">Armazenamento</option>
-                <option value="monitor">Monitor</option>
-                <option value="mouse">Mouse</option>
-                <option value="teclado">Teclado</option>
-            </select>
+        <div class="busca">
+            <po-select
+                name="categoria"
+                p-label="Selecione a categoria"
+                [p-options]="[
+                    {label: 'Todos', value: 'todos'},
+                    {label: 'Processador', value: 'processador'},
+                    {label: 'Placa Mãe', value: 'placaMae'},
+                    {label: 'Memória Ram', value: 'memoriaRam'},
+                    {label: 'Armazenamento', value: 'armazenamento'},
+                    {label: 'Monitor', value: 'monitor'},
+                    {label: 'Teclado', value: 'teclado'},
+                    {label: 'Mouse', value: 'mouse'}
+                ]"
+                (p-change)="onCategoriaChange($event)">
+            </po-select>
         </div>
-
         <div class="grid-container">
-            <div *ngFor="let produto of listaProdutos" class="grid-item">
+            <div *ngFor="let produto of produtosFiltrados" class="grid-item">
                 <p>Nome: {{ produto.nome }}</p>
                 <p>Categoria: {{ produto.categoria }}</p>
                 <po-button p-icon="po-icon-plus-circle" (p-click)="selecionarProduto(produto)"></po-button>
@@ -45,7 +48,7 @@
             <div class="produto-carrinho" *ngFor="let produto of listaProdutosCarrinhoShow">
                 <p>Nome: {{ produto.nome }}</p>
                 <p>Categoria: {{ produto.categoria }}</p>
-                <po-button (p-click)="removerProduto(produto)" p-icon="po-icon-minus-circle" ></po-button>
+                <po-button (p-click)="removerProduto(produto)" p-icon="po-icon-minus-circle"></po-button>
             </div>
             <po-button class="realizar-pedido-button" (click)="realizarPedido()" [p-disabled]="listaProdutosCarrinho.length === 0" p-label="Realizar pedido "></po-button>
         </div>
@@ -59,7 +62,7 @@
                     <p>Email: {{ cliente.email }}</p>
                     <p>CPF: {{ cliente.cpf }}</p>
                     <p>Telefone: {{ cliente.telefone }}</p>
-                    <po-button (p-click)="selecionarCliente(cliente)" p-label="X"></po-button>
+                    <po-button (p-click)="selecionarCliente(cliente)" p-label="Selecionar"></po-button>
                 </div>
             </div>
             <div class="paginacao">

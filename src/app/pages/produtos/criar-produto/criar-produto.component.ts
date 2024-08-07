@@ -24,7 +24,6 @@ export class CriarProdutoComponent implements OnInit{
     {
       property: 'nome',
       required: true,
-      icon: 'ph ph-envelope',
       placeholder: 'Digite o nome do produto'
     },
     {

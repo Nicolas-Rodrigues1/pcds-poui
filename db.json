@@ -59,6 +59,11 @@
       "id": 10873853,
       "nome": "ASROCK",
       "categoria": "placaMae"
+    },
+    {
+      "id": 694340051,
+      "nome": "HP",
+      "categoria": "mouse"
     }
   ],
   "login": [
@@ -111,6 +116,11 @@
       "email": "pedro@email.com",
       "senha": "123",
       "id": 502676774
+    },
+    {
+      "email": "ana@email.com",
+      "senha": "123",
+      "id": 502676775
     }
   ],
   "clientes": [
@@ -162,6 +172,26 @@
       "cliente": 502676766,
       "produto": [
         715115228
+      ]
+    },
+    {
+      "id": 458722880,
+      "status": "Pendente",
+      "cliente": 44025360,
+      "produto": [
+        715115228,
+        832020957,
+        267415355
+      ]
+    },
+    {
+      "id": 755765060,
+      "status": "Pendente",
+      "cliente": 44025360,
+      "produto": [
+        832020957,
+        183921362,
+        932961919
       ]
     }
   ]

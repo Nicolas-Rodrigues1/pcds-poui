@@ -21,6 +21,13 @@ app-container {
     max-width: 800px;
   }
   
+  .busca{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3px;
+  }
+  
   .categoria-select {
     margin-bottom: 16px; /* Espaçamento abaixo do seletor de categoria */
   }

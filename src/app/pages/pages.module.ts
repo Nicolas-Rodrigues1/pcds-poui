@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../shared/shared.module";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PouiModule } from "../core/po-ui/poui.module";
 import { PagesRoutingModule } from "./pages-routing.module";
 import { ProdutoComponent } from "./produtos/produto/produto.component";
@@ -27,7 +27,8 @@ import { TesteComponent } from "./teste/teste.component";
         SharedModule,
         ReactiveFormsModule,
         PouiModule,
-        PagesRoutingModule
+        PagesRoutingModule,
+        FormsModule
     ],
     exports:[
     ]

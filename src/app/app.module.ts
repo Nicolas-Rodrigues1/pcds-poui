@@ -13,7 +13,7 @@ import { ErrosInterceptor } from './core/erro/erro.interceptor';
 import { AutenticacaoInterceptor } from './autenticacao/autenticacao.interceptor';
 import { AutenticacaoModule } from "./autenticacao/autenticacao.module";
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PouiModule,
     ReactiveFormsModule,
     ErroModule,
-    AutenticacaoModule
+    AutenticacaoModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),

@@ -8,9 +8,9 @@ import { PedidoService } from '../services/pedido.service';
 @Component({
   selector: 'app-pedido-venda',
   templateUrl: './pedido-venda.component.html',
-  styleUrl: './pedido-venda.component.scss'
+  styleUrls: ['./pedido-venda.component.scss']
 })
-export class PedidoVendaComponent implements OnInit{
+export class PedidoVendaComponent implements OnInit {
   @ViewChild('modalCliente') modalCliente!: PoModalComponent;
 
   cliente: Cliente = {
@@ -28,10 +28,9 @@ export class PedidoVendaComponent implements OnInit{
   produtoSelecionado: Produto | null = null;
   status = 'Pendente';
 
-  listaProdutosCarrinho: number[] = []
-  listaProdutosCarrinhoShow: Produto[] = []
+  listaProdutosCarrinho: number[] = [];
+  listaProdutosCarrinhoShow: Produto[] = [];
   listaProdutos: Produto[] = [];
-  listaPedidos: Pedido[] = []
   produtosFiltrados: Produto[] = [];
   categoriaSelecionada = '';
   page = 1;
@@ -41,81 +40,85 @@ export class PedidoVendaComponent implements OnInit{
     private clienteService: ClienteService,
     private produtoService: ProdutoService,
     private pedidoService: PedidoService
-  ){}
+  ) {}
 
   ngOnInit(): void {
     this.clienteService.clienteSelecionado$.subscribe(cliente => {
       this.clienteSelecionado = cliente;
-      if(cliente){
+      if (cliente) {
         this.listarProdutos();
       }
-      // console.log(cliente)
     });
   }
 
-  openModal(){
-    this.modalCliente.open()
-    this.listarClientes()
+  openModal() {
+    this.modalCliente.open();
+    this.listarClientes();
   }
 
-  listarClientes(){
-    this.clienteService.listar(this.page, this.pageSize).subscribe((listaClientes) =>{
-      this.listaClientes = listaClientes
-    })
+  listarClientes() {
+    this.clienteService.listar(this.page, this.pageSize).subscribe((listaClientes) => {
+      this.listaClientes = listaClientes;
+    });
   }
 
-  selecionarCliente(cliente: Cliente){
-    this.clienteService.selecionarCliente(cliente)
-    if(this.clienteSelecionado!.id !== 0){
-      this.modalCliente.close()
-    } 
-    console.log(this.clienteSelecionado)
-    // console.log(cliente)
-  }
-
-  selecionarProduto(produto: Produto){
-    this.produtoSelecionado = produto;
-    // console.log(produto)
-    this.adicionarProdutoCarrinho()
-  }
-
-  listarProdutos(){
-    this.produtoService.listar(this.page, this.pageSize).subscribe((listaProdutos) => {
-      this.listaProdutos = listaProdutos
-      this.filtrarProdutos()
-      // console.log(this.produtosFiltrados)
-      // console.log(listaProdutos)
-    })
-  }
-
-  filtrarProdutos(){
-    if (this.categoriaSelecionada) {
-      this.produtosFiltrados = this.listaProdutos.filter(produto => produto.categoria === this.categoriaSelecionada);
-    } else {
-      this.produtosFiltrados = [...this.listaProdutos];
+  selecionarCliente(cliente: Cliente) {
+    this.clienteService.selecionarCliente(cliente);
+    this.clienteSelecionado = cliente;
+    if (this.clienteSelecionado.id !== 0) {
+      this.modalCliente.close();
+      this.listarProdutos(); 
     }
   }
 
-  adicionarProdutoCarrinho(){
-    if(this.produtoSelecionado){
+  selecionarProduto(produto: Produto) {
+    this.produtoSelecionado = produto;
+    this.adicionarProdutoCarrinho();
+  }
+
+  listarProdutos() {
+    this.produtoService.listar(this.page, this.pageSize).subscribe((listaProdutos) => {
+      this.listaProdutos = listaProdutos;
+      this.filtrarProdutos();
+    });
+  }
+
+  onCategoriaChange(categoria: string) {
+    this.categoriaSelecionada = categoria;
+    this.filtrarProdutos();
+  }
+
+  filtrarProdutos() {
+    if(this.categoriaSelecionada !== 'todos'){
+      if (this.categoriaSelecionada) {
+        this.produtosFiltrados = this.listaProdutos.filter(produto => produto.categoria === this.categoriaSelecionada);
+      } else {
+        this.produtosFiltrados = [...this.listaProdutos];
+      }
+      console.log('Produtos filtrados:', this.produtosFiltrados); 
+    } else {
+      this.produtosFiltrados = this.listaProdutos
+      this.listarProdutos()
+    }
+  }
+
+  adicionarProdutoCarrinho() {
+    if (this.produtoSelecionado) {
       this.listaProdutosCarrinho.push(this.produtoSelecionado.id);
       this.listaProdutosCarrinhoShow.push(this.produtoSelecionado);
-      // console.log(this.listaProdutosCarrinho, 'adicionado')
-      // console.log(this.listaProdutosCarrinhoShow)
     }
   }
 
-  removerProduto(produto: Produto){
-    const index = this.listaProdutosCarrinhoShow.findIndex(p => p.id === produto.id)
-    this.listaProdutosCarrinho.splice(index, 1)
-    this.listaProdutosCarrinhoShow.splice(index, 1)
-    // console.log(this.listaProdutosCarrinho,'produto removido do carrinho')
+  removerProduto(produto: Produto) {
+    const index = this.listaProdutosCarrinhoShow.findIndex(p => p.id === produto.id);
+    if (index !== -1) {
+      this.listaProdutosCarrinho.splice(index, 1);
+      this.listaProdutosCarrinhoShow.splice(index, 1);
+    }
   }
 
-  realizarPedido(){
-    console.log(this.clienteSelecionado)
-    console.log(this.produtoSelecionado)
-    if(this.clienteSelecionado && this.produtoSelecionado){
+  realizarPedido() {
+    if (this.clienteSelecionado) {
       const novoPedido: Pedido = {
         id: Math.floor(Math.random() * 1000000000),
         status: this.status,
@@ -124,24 +127,22 @@ export class PedidoVendaComponent implements OnInit{
       };
 
       this.pedidoService.criarPedido(novoPedido).subscribe(() => {
-        console.log('pedido realizado com sucesso')
-      })
+        console.log('Pedido realizado com sucesso');
+      });
     }
-    this.listaProdutosCarrinho = []
-    this.listaProdutosCarrinhoShow = []
+    this.listaProdutosCarrinho = [];
+    this.listaProdutosCarrinhoShow = [];
   }
 
-
-  proximaPagina(): void{
+  proximaPagina(): void {
     this.page++;
     this.listarProdutos();
   }
 
-  paginaAnterior(): void{
+  paginaAnterior(): void {
     if (this.page > 1) {
       this.page--;
       this.listarProdutos();
     }
   }
-
 }
