@@ -14,6 +14,7 @@ import { AutenticacaoInterceptor } from './autenticacao/autenticacao.interceptor
 import { AutenticacaoModule } from "./autenticacao/autenticacao.module";
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     ErroModule,
     AutenticacaoModule,
-    FormsModule
+    RouterModule    
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),

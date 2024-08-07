@@ -12,7 +12,7 @@ export class SideMenuComponent {
   menuItemSelected!: string;
 
   menus: Array<PoMenuItem> = [
-    {label: 'Cadastros', icon: 'ph ph-user',
+    {label: 'Cadastros', icon: 'ph ph-user', shortLabel: 'Home',
       subItems:[
         {label: 'Clientes', icon: 'ph ph-user', link: '/pages/clientes'},
         {label: 'Produtos', icon: 'ph ph-user', link: '/pages/produtos'}
