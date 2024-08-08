@@ -7,6 +7,7 @@
     p-container="true"
     p-hide-table-search="true"
     [p-columns]="columns"
+    [p-actions]="actions"
     [p-items]="items"
     ></po-table>
     <!-- <po-widget p-title="Esses são seus pedidos">
@@ -25,3 +26,15 @@
         </div>
     </po-widget> -->
 </app-container>
+
+<po-modal #modalExcluir p-click-out="true" p-title="Detalhes do Pedido">
+    <h1>ID: {{detail?.id}}</h1>
+    <p>Status: {{detail?.status}}</p>
+</po-modal>
+
+<po-modal #modalEditar p-click-out="true" p-title="Detalhes do Pedido">
+    <po-dynamic-form #dynamicForm [p-fields]="fields">
+        <po-button class="po-md-3" p-label="Confirmar" (p-click)="editarPedido()"></po-button>
+    </po-dynamic-form>
+    teste
+</po-modal>

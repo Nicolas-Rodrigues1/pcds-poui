@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { EmailService } from 'src/app/core/services/email.service';
 import { Pedido, Produto } from 'src/app/core/types/type';
 import { ClienteService } from '../services/cliente.service';
 import { PedidoService } from '../services/pedido.service';
 import { ProdutoService } from '../services/produto.service';
-import { PoTableColumn, PoTableDetail } from '@po-ui/ng-components';
+import { PoDynamicFormField, PoModalComponent, PoTableAction, PoTableColumn, PoTableComponent, PoTableDetail } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-listar-vendas',
@@ -12,6 +12,10 @@ import { PoTableColumn, PoTableDetail } from '@po-ui/ng-components';
   styleUrl: './listar-vendas.component.scss'
 })
 export class ListarVendasComponent implements OnInit{
+  @ViewChild('modalExcluir', { static: true }) modalExcluir!: PoModalComponent;
+  @ViewChild(PoTableComponent, { static: true }) poTable!: PoTableComponent;
+  @ViewChild('modalEditar', { static: true }) modalEditar!: PoModalComponent;
+
 
   listaPedidos: Pedido[] = []
   produtos: Produto[] = []
@@ -35,6 +39,39 @@ export class ListarVendasComponent implements OnInit{
 
   columns!: Array<PoTableColumn>;
   items: Pedido[] = []
+  detail: any;  
+
+  fields: Array<PoDynamicFormField> = [
+    {
+      property: 'status',
+      required: true
+    },
+    {
+      property: 'nome',
+      required: true
+    },
+    {
+      property: 'categoria',
+      required: true,
+      options: [
+        {categoria: 'Processador', code: 'processador'},
+        {categoria: 'Placa Mãe', code: 'placaMae'},
+        {categoria: 'Memória Ram', code: 'memoriaRam'},
+        {categoria: 'Armazenamento', code: 'armazenamento'},
+        {categoria: 'Mouse', code: 'mouse'},
+        {categoria: 'Teclado', code: 'teclado'},
+        {categoria: 'Monitor', code: 'monitor'},
+      ],
+      fieldLabel: 'categoria',
+      fieldValue: 'code'
+    }
+  ]
+
+  readonly actions: Array<PoTableAction> = [
+    { action: this.details.bind(this), icon: 'ph ph-info', label: 'Details' },
+    { action: this.remove.bind(this), icon: 'po-icon ph ph-trash', label: 'Remove'},
+    { action: this.edit.bind(this), icon: 'po-icon po-icon-edit', label: 'Editar'}
+  ]
 
   getColumns(): PoTableColumn[]{
     let columnsDetail: PoTableDetail = {
@@ -77,6 +114,32 @@ export class ListarVendasComponent implements OnInit{
     // this.produtoService.getProdutos().subscribe((produtos) => {
     //   this.produtos = produtos
     // })
+  }
+
+  remove(item: Pedido){
+    this.poTable.removeItem(item)
+    console.log(item.id)
+    this.pedidoService.excluir(item.id).subscribe(()=>{
+      console.log('Pedido excluído')
+    })
+  }
+
+  details(item: Pedido) {
+    this.detail = item;
+    this.modalExcluir.open();
+  }
+
+  edit(item: Pedido){
+    this.detail = item;
+    this.modalEditar.open();
+  }
+  
+  editarPedido(){
+    this.pedidoService.editar(this.detail).subscribe(() => {
+      console.log(this.detail)
+      console.log('Produto editado')
+      this.modalEditar.close()
+    })
   }
 
   getProdutoNome(produtoId: number): string{

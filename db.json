@@ -293,58 +293,6 @@
           "categoria": "teclado"
         }
       ]
-    },
-    {
-      "id": 332509811,
-      "status": "Pendente",
-      "cliente": 26327681,
-      "produto": [
-        715115228,
-        832020957,
-        267415355
-      ],
-      "detail": [
-        {
-          "nome": "HD 500GB",
-          "categoria": "armazenamento"
-        },
-        {
-          "nome": "Dell 24\"",
-          "categoria": "monitor"
-        },
-        {
-          "nome": "AMD Ryzen",
-          "categoria": "processador"
-        },
-        {
-          "nome": "Benq 240HZ",
-          "categoria": "monitor"
-        },
-        {
-          "nome": "AMD",
-          "categoria": "mouse"
-        },
-        {
-          "nome": "Intel i5-12400f",
-          "categoria": "processador"
-        },
-        {
-          "nome": "GFallen",
-          "categoria": "teclado"
-        },
-        {
-          "nome": "AMD",
-          "categoria": "mouse"
-        },
-        {
-          "nome": "HD 500GB",
-          "categoria": "armazenamento"
-        },
-        {
-          "nome": "AMD Ryzen",
-          "categoria": "processador"
-        }
-      ]
     }
   ]
 }
