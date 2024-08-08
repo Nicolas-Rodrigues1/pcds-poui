@@ -45,7 +45,7 @@ export class ListarVendasComponent implements OnInit{
       typeHeader: 'top'
     }
     return [
-      {property: 'detail', label: 'Detalhes', detail: columnsDetail},
+      {property: 'detail', label: 'Detalhes', type:'detail', detail: columnsDetail},
       {property: 'id', label: 'ID'},
       {property: 'status', label: 'Status'}
     ]

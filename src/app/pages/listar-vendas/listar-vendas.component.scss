@@ -1,8 +1,16 @@
 app-container {
-    margin-left: 20%;
+    margin-left: 22%;
 
   po-table{
-    margin: 10px;
+    --color: #000000;
+    --color-hover: #bbbbbb;
+    --background-color-headline: #7a0a9c;
+  }
+
+  h1{
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
   }
 
   .grid-container {
