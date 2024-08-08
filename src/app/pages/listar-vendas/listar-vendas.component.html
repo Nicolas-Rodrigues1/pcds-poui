@@ -1,6 +1,16 @@
 <app-side-menu></app-side-menu>
 <app-container>
-    <po-widget p-title="Esses são seus pedidos">
+    <div class="po-font-text-bold">Seus pedidos</div>
+    <po-table
+    p-container="true"
+    [p-hide-batch-actions]="false"
+    [p-hide-table-search]="false"
+    [p-columns]="columns"
+    [p-items]="items"
+    (p-collapsed)="onCollapseDetail()"
+    (p-expanded)="onExpandDetail()"
+    ></po-table>
+    <!-- <po-widget p-title="Esses são seus pedidos">
         <div class="grid-container">
             <div *ngFor="let pedido of listaPedidos" class="grid-item">
                 <h3>Id do pedido: {{ pedido.id }}</h3>
@@ -9,9 +19,10 @@
                 <ul class="produto-list">
                     <li *ngFor="let produtoId of pedido.produto">
                         {{ getProdutoNome(produtoId) }}
+                        {{ getProdutoCategoria(produtoId) }}
                     </li>
                 </ul>
             </div>
         </div>
-    </po-widget>
+    </po-widget> -->
 </app-container>

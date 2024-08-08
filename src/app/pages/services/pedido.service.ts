@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PoTableColumn, PoTableDetail } from '@po-ui/ng-components';
 
 import { Observable } from 'rxjs';
 import { Pedido } from 'src/app/core/types/type';
@@ -18,6 +19,10 @@ export class PedidoService {
   }
 
   listarPedidos(): Observable<Pedido[]>{
+    return this.http.get<Pedido[]>(this.apiUrl);
+  }
+
+  getItems(): Observable<Pedido[]> {
     return this.http.get<Pedido[]>(this.apiUrl);
   }
 }
