@@ -151,6 +151,11 @@
       "email": "pedro@email.com",
       "senha": "123",
       "id": 502676781
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676782
     }
   ],
   "clientes": [
@@ -197,51 +202,22 @@
   ],
   "pedidos": [
     {
-      "id": 693693230,
+      "id": 80892615,
       "status": "Pendente",
-      "cliente": 502676766,
+      "cliente": 26327681,
       "produto": [
-        715115228
-      ]
-    },
-    {
-      "id": 458722880,
-      "status": "Pendente",
-      "cliente": 44025360,
-      "produto": [
-        715115228,
-        832020957,
-        267415355
-      ]
-    },
-    {
-      "id": 755765060,
-      "status": "Pendente",
-      "cliente": 44025360,
-      "produto": [
-        832020957,
-        183921362,
-        932961919
-      ]
-    },
-    {
-      "id": 913751859,
-      "status": "Pendente",
-      "cliente": 502676766,
-      "produto": [
-        832020957,
-        513050567,
-        267415355,
-        183921362
-      ]
-    },
-    {
-      "id": 977307665,
-      "status": "Pendente",
-      "cliente": 502676766,
-      "produto": [
-        715115228,
-        832020957
+        291226238,
+        751507559
+      ],
+      "detail": [
+        {
+          "nome": "Deathadder",
+          "categoria": "mouse"
+        },
+        {
+          "nome": "32Gb ",
+          "categoria": "memoriaRam"
+        }
       ]
     }
   ]

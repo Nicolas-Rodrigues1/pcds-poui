@@ -3,12 +3,9 @@
     <div class="po-font-text-bold">Seus pedidos</div>
     <po-table
     p-container="true"
-    [p-hide-batch-actions]="false"
-    [p-hide-table-search]="false"
+    p-hide-table-search="true"
     [p-columns]="columns"
     [p-items]="items"
-    (p-collapsed)="onCollapseDetail()"
-    (p-expanded)="onExpandDetail()"
     ></po-table>
     <!-- <po-widget p-title="Esses são seus pedidos">
         <div class="grid-container">

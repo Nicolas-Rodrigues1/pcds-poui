@@ -23,7 +23,8 @@ export class ListarVendasComponent implements OnInit{
     id: 0,
     status: '',
     cliente: 0,
-    produto: []
+    produto: [],
+    detail: []
   }
 
   @Input() produto: Produto = {
@@ -32,28 +33,21 @@ export class ListarVendasComponent implements OnInit{
     categoria: ''
   }
 
-  columns: Array<PoTableColumn> = []
-  columnsDefault: Array<PoTableColumn> = []
-  items!: Array<Pedido>;
-  detail: any;
-  totalExpanded = 0;
+  columns!: Array<PoTableColumn>;
+  items: Pedido[] = []
 
-  getColumns(): Array<PoTableColumn>{
-    return [
-      {
-        property: 'detail', 
-        label: 'Details',
-        detail: 
-        { 
-          columns: [
+  getColumns(): PoTableColumn[]{
+    let columnsDetail: PoTableDetail = {
+      columns: [
         { property: 'nome', label: 'Nome' },
         { property: 'categoria', label: 'Categoria' }
       ],
       typeHeader: 'top'
     }
-    },
-      {property: 'id'},
-      {property: 'status'}
+    return [
+      {property: 'detail', label: 'Detalhes', detail: columnsDetail},
+      {property: 'id', label: 'ID'},
+      {property: 'status', label: 'Status'}
     ]
   }
 
@@ -83,15 +77,6 @@ export class ListarVendasComponent implements OnInit{
     // this.produtoService.getProdutos().subscribe((produtos) => {
     //   this.produtos = produtos
     // })
-  }
-
-  onExpandDetail() {
-    this.totalExpanded += 1;
-  }
-
-
-  onCollapseDetail(){
-
   }
 
   getProdutoNome(produtoId: number): string{

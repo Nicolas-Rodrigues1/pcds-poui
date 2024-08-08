@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PoModalComponent } from '@po-ui/ng-components';
-import { Cliente, Pedido, Produto } from 'src/app/core/types/type';
+import { Cliente, Pedido, PedidoDetail, Produto } from 'src/app/core/types/type';
 import { ClienteService } from '../services/cliente.service';
 import { ProdutoService } from '../services/produto.service';
 import { PedidoService } from '../services/pedido.service';
@@ -28,6 +28,8 @@ export class PedidoVendaComponent implements OnInit {
   produtoSelecionado: Produto | null = null;
   status = 'Pendente';
 
+  
+  listaDetail: PedidoDetail[] = [];
   listaProdutosCarrinho: number[] = [];
   listaProdutosCarrinhoShow: Produto[] = [];
   listaProdutos: Produto[] = [];
@@ -105,6 +107,13 @@ export class PedidoVendaComponent implements OnInit {
   adicionarProdutoCarrinho() {
     if (this.produtoSelecionado) {
       this.listaProdutosCarrinho.push(this.produtoSelecionado.id);
+
+      const detalheProduto: PedidoDetail = {
+        nome: this.produtoSelecionado.nome,
+        categoria: this.produtoSelecionado.categoria
+      }
+
+      this.listaDetail.push(detalheProduto)
       this.listaProdutosCarrinhoShow.push(this.produtoSelecionado);
     }
   }
@@ -123,8 +132,10 @@ export class PedidoVendaComponent implements OnInit {
         id: Math.floor(Math.random() * 1000000000),
         status: this.status,
         cliente: this.clienteSelecionado.id,
-        produto: this.listaProdutosCarrinho
+        produto: this.listaProdutosCarrinho,
+        detail: this.listaDetail
       };
+      console.log(this.listaDetail)
 
       this.pedidoService.criarPedido(novoPedido).subscribe(() => {
         console.log('Pedido realizado com sucesso');

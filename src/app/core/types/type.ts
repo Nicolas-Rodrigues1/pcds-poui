@@ -32,9 +32,15 @@ export interface Clientelogin{
     senha: string;
 }
 
+export interface PedidoDetail{
+    nome: string,
+    categoria: string
+}
+
 export interface Pedido{
     id: number,
     status: string,
     cliente: number,
-    produto: number[]
+    produto: number[],
+    detail: PedidoDetail[]
 }
