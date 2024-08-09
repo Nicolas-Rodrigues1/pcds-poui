@@ -29,8 +29,8 @@
 
 <po-modal #modalShow p-click-out="true" p-title="Detalhes do Pedido">
     <div *ngIf="detail && detail.length > 0">
-      <h1>ID: {{currentPedido?.id}}</h1>
-      <p>Status: {{currentPedido?.status}}</p>
+      <h1>ID: {{currentPedido.id}}</h1>
+      <p>Status: {{currentPedido.status}}</p>
         <br/>
       <ul>
         <h2>Produtos</h2>
@@ -42,14 +42,63 @@
 </po-modal>
 
 <po-modal #modalEditar p-click-out="true" p-title="Editar Pedido">
-    <po-dynamic-form #dynamicForm [p-fields]="fields" [p-value]="detail">
-    </po-dynamic-form>
-    <ul>
-        <li *ngFor="let produto of detail">
-          Nome: {{ produto.nome }} | Categoria: {{ produto.categoria }}
-        </li>
-    </ul>
-    <div class="po-mt-3">
-      <po-button p-label="Confirmar" (p-click)="editarPedido()"></po-button>
-    </div>
-</po-modal>
+    <form (ngSubmit)="editarPedido()" #editForm="ngForm">
+      <label for="nome">Altere os dados que desejar</label>
+  
+        <label for="status">Status</label>
+        <select class="input" name="status" [(ngModel)]="currentPedido.status">
+            <option value="Pendente">Pendente</option>
+            <option value="Processando">Processando</option>
+            <option value="Concluido">Concluído</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+  
+      <p>Nome do Produto</p>
+      <po-input name="input" p-label="Nome do produto"></po-input>
+      <input 
+        type="text" 
+        class="input" 
+        name="nome" 
+        placeholder="Digite o nome" 
+        [(ngModel)]="produto.nome"
+        required
+      />
+  
+      <po-select
+        p-label="Categoria"
+        [p-field-value]="produto.categoria"
+        [p-options]="[
+        {label: 'Processador', value: 'processador'},
+        {label: 'Placa Mãe', value: 'placaMae'},
+        {label: 'Memória Ram', value: 'memoriaRam'},
+        {label: 'Armazenamento', value: 'armazenamento'},
+        {label: 'Monitor', value: 'monitor'},
+        {label: 'Teclado', value: 'teclado'},
+        {label: 'Mouse', value: 'mouse'}
+        ]"
+      >
+      </po-select>
+      <!-- <label for="categoria">Categoria</label>
+      <select 
+        class="input" 
+        name="categoria" 
+        [(ngModel)]="produto.categoria"
+        required
+      >
+        <option value="" disabled>Selecione a categoria</option>
+        <option value="processador">Processador</option>
+        <option value="placaMae">Placa Mãe</option>
+        <option value="memoriaRam">Memória RAM</option>
+        <option value="armazenamento">Armazenamento</option>
+        <option value="monitor">Monitor</option>
+        <option value="mouse">Mouse</option>
+        <option value="teclado">Teclado</option>
+      </select> -->
+  
+      <div>
+        <po-button (p-click)="editarPedido()" p-label="Salvar"></po-button>
+      </div>
+    </form>
+  </po-modal>
+  
+  

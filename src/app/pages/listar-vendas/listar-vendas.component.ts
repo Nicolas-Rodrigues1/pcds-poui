@@ -40,12 +40,18 @@ export class ListarVendasComponent implements OnInit{
   columns!: Array<PoTableColumn>;
   items: Pedido[] = []
   detail: PedidoDetail[] = [] 
-  currentPedido: Pedido | null = null; 
+  currentPedido: Pedido = {
+    id: 0,
+    status: '',
+    cliente: 0,
+    produto: [],
+    detail: []
+  };
 
   fields: Array<PoDynamicFormField> = [
     {
     property: 'status',
-    label: 'Status do pedido',
+    label: 'Status',
     required: true,
     options: [
       { label: 'Pendente', value: 'Pendente' },
