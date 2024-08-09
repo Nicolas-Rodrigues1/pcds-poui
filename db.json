@@ -176,6 +176,36 @@
       "email": "pedro@email.com",
       "senha": "123",
       "id": 502676786
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676787
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676788
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676789
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676790
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676791
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676792
     }
   ],
   "clientes": [
@@ -317,6 +347,25 @@
         {
           "nome": "HD 500GB",
           "categoria": "armazenamento"
+        }
+      ]
+    },
+    {
+      "id": 47001806,
+      "status": "Pendente",
+      "cliente": 502676766,
+      "produto": [
+        832020957,
+        183921362
+      ],
+      "detail": [
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento"
+        },
+        {
+          "nome": "Dell 24\"",
+          "categoria": "monitor"
         }
       ]
     }

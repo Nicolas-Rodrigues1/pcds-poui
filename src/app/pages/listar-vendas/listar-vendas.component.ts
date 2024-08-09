@@ -113,24 +113,28 @@ export class ListarVendasComponent implements OnInit{
 
   ngOnInit(): void {
     this.columns = this.getColumns();
-    
-    this.pedidoService.getItems().subscribe((items: Pedido[]) => {
-      this.items = items;
-      console.log(this.items)
+  
+    // Obtém o e-mail do usuário logado
+    this.emailService.email$.subscribe(email => {
+      this.emailLogado = email;
+  
+      // Obtém o cliente com base no e-mail
+      this.clienteService.getClientePorEmail(this.emailLogado!).subscribe(cliente => {
+        
+        // Filtra os pedidos para mostrar apenas os do cliente logado
+        this.pedidoService.getItems().subscribe((listaPedidos) => {
+          this.items = listaPedidos.filter(pedido => pedido.cliente === cliente.id);
+          console.log('Pedidos do cliente logado:', this.items);
+        });
+      });
     });
-    // this.emailService.email$.subscribe(email => {
-    //   this.emailLogado = email;
-      
-    //   this.clienteService.getClientePorEmail(this.emailLogado!).subscribe(cliente => {
-    //     this.pedidoService.listarPedidos().subscribe((listaPedidos)=> {
-    //       this.listaPedidos = listaPedidos.filter(pedido => pedido.cliente === cliente.id)
-    //     })
-    //   })
-    // })
-    // this.produtoService.getProdutos().subscribe((produtos) => {
-    //   this.produtos = produtos
-    // })
+  
+    // Obtém a lista de produtos
+    this.produtoService.getProdutos().subscribe((produtos) => {
+      this.produtos = produtos;
+    });
   }
+  
 
   remove(item: Pedido){
     this.poTable.removeItem(item)
@@ -147,16 +151,16 @@ export class ListarVendasComponent implements OnInit{
   }
 
   edit(item: Pedido) {
-    console.log('edit: item',item);
+    // console.log('edit: item',item);
     this.currentPedido = item; // Atualize para o pedido completo
     this.detail = item.detail; // Mantenha os detalhes separados
     this.modalEditar.open();
-    console.log('currentPedido', this.currentPedido)
-    console.log('detail', this.detail)
+    // console.log('currentPedido', this.currentPedido)
+    // console.log('detail', this.detail)
   }
   
   editarPedido(currentPedido: Pedido) {
-    console.log( currentPedido)
+    // console.log( currentPedido)
     if (this.currentPedido) {
       this.pedidoService.editar(this.currentPedido).subscribe(() => {
         console.log('Pedido editado');
@@ -165,14 +169,6 @@ export class ListarVendasComponent implements OnInit{
     }
   }
 
-  getProdutoNome(produtoId: number): string{
-    const produto = this.produtos.find(p => p.id === produtoId)
-    return produto ? produto.nome : 'Produto não encontrado';
-  }
 
-  getProdutoCategoria(produtoId: number): string{
-    const produto = this.produtos.find(p => p.id === produtoId)
-    return produto ? produto.categoria : 'Produto não encontrado';
-  }
 
 }
