@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { EmailService } from 'src/app/core/services/email.service';
-import { Pedido, Produto } from 'src/app/core/types/type';
+import { Pedido, PedidoDetail, Produto } from 'src/app/core/types/type';
 import { ClienteService } from '../services/cliente.service';
 import { PedidoService } from '../services/pedido.service';
 import { ProdutoService } from '../services/produto.service';
@@ -12,7 +12,7 @@ import { PoDynamicFormField, PoModalComponent, PoTableAction, PoTableColumn, PoT
   styleUrl: './listar-vendas.component.scss'
 })
 export class ListarVendasComponent implements OnInit{
-  @ViewChild('modalExcluir', { static: true }) modalExcluir!: PoModalComponent;
+  @ViewChild('modalShow', { static: true }) modalShow!: PoModalComponent;
   @ViewChild(PoTableComponent, { static: true }) poTable!: PoTableComponent;
   @ViewChild('modalEditar', { static: true }) modalEditar!: PoModalComponent;
 
@@ -39,13 +39,21 @@ export class ListarVendasComponent implements OnInit{
 
   columns!: Array<PoTableColumn>;
   items: Pedido[] = []
-  detail: any;  
+  detail: PedidoDetail[] = [] 
+  currentPedido: Pedido | null = null; 
 
   fields: Array<PoDynamicFormField> = [
     {
-      property: 'status',
-      required: true
-    },
+    property: 'status',
+    label: 'Status do pedido',
+    required: true,
+    options: [
+      { label: 'Pendente', value: 'Pendente' },
+      { label: 'Processando', value: 'Processando' },
+      { label: 'Concluído', value: 'Concluído' },
+      { label: 'Cancelado', value: 'Cancelado' }
+    ]
+  },
     {
       property: 'nome',
       required: true
@@ -125,21 +133,25 @@ export class ListarVendasComponent implements OnInit{
   }
 
   details(item: Pedido) {
-    this.detail = item;
-    this.modalExcluir.open();
+    this.currentPedido = item; // Atualize para o pedido completo
+    this.detail = item.detail; // Mantenha os detalhes separados
+    this.modalShow.open();
   }
 
-  edit(item: Pedido){
-    this.detail = item;
+  edit(item: Pedido) {
+    console.log(item);
+    this.currentPedido = item; // Atualize para o pedido completo
+    this.detail = item.detail; // Mantenha os detalhes separados
     this.modalEditar.open();
   }
   
-  editarPedido(){
-    this.pedidoService.editar(this.detail).subscribe(() => {
-      console.log(this.detail)
-      console.log('Produto editado')
-      this.modalEditar.close()
-    })
+  editarPedido() {
+    if (this.currentPedido) {
+      this.pedidoService.editar(this.currentPedido).subscribe(() => {
+        console.log('Pedido editado');
+        this.modalEditar.close();
+      });
+    }
   }
 
   getProdutoNome(produtoId: number): string{

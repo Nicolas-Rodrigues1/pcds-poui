@@ -27,14 +27,29 @@
     </po-widget> -->
 </app-container>
 
-<po-modal #modalExcluir p-click-out="true" p-title="Detalhes do Pedido">
-    <h1>ID: {{detail?.id}}</h1>
-    <p>Status: {{detail?.status}}</p>
+<po-modal #modalShow p-click-out="true" p-title="Detalhes do Pedido">
+    <div *ngIf="detail && detail.length > 0">
+      <h1>ID: {{currentPedido?.id}}</h1>
+      <p>Status: {{currentPedido?.status}}</p>
+        <br/>
+      <ul>
+        <h2>Produtos</h2>
+        <li *ngFor="let produto of detail">
+          Nome: {{ produto.nome }} | Categoria: {{ produto.categoria }}
+        </li>
+    </ul>
+    </div>
 </po-modal>
 
-<po-modal #modalEditar p-click-out="true" p-title="Detalhes do Pedido">
-    <po-dynamic-form #dynamicForm [p-fields]="fields">
-        <po-button class="po-md-3" p-label="Confirmar" (p-click)="editarPedido()"></po-button>
+<po-modal #modalEditar p-click-out="true" p-title="Editar Pedido">
+    <po-dynamic-form #dynamicForm [p-fields]="fields" [p-value]="detail">
     </po-dynamic-form>
-    teste
+    <ul>
+        <li *ngFor="let produto of detail">
+          Nome: {{ produto.nome }} | Categoria: {{ produto.categoria }}
+        </li>
+    </ul>
+    <div class="po-mt-3">
+      <po-button p-label="Confirmar" (p-click)="editarPedido()"></po-button>
+    </div>
 </po-modal>

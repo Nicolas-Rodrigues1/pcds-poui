@@ -161,6 +161,11 @@
       "email": "pedro@email.com",
       "senha": "123",
       "id": 502676783
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676784
     }
   ],
   "clientes": [
@@ -222,35 +227,6 @@
         {
           "nome": "32Gb ",
           "categoria": "memoriaRam"
-        }
-      ]
-    },
-    {
-      "id": 664390708,
-      "status": "Pendente",
-      "cliente": 502676766,
-      "produto": [
-        832020957,
-        183921362,
-        267415355,
-        932961919
-      ],
-      "detail": [
-        {
-          "nome": "HD 500GB",
-          "categoria": "armazenamento"
-        },
-        {
-          "nome": "Dell 24\"",
-          "categoria": "monitor"
-        },
-        {
-          "nome": "AMD Ryzen",
-          "categoria": "processador"
-        },
-        {
-          "nome": "Benq 240HZ",
-          "categoria": "monitor"
         }
       ]
     },
