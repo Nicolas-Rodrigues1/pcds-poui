@@ -47,3 +47,26 @@ app-container {
     border-bottom: none;
   }
 }
+
+
+select {
+  width: 100%;             // Largura total do elemento pai
+  padding: 10px;           // Espaçamento interno
+  border: 2px solid #007bff; // Borda de 2px de largura e cor azul
+  border-radius: 4px;      // Bordas arredondadas
+  background-color: #fff;  // Cor de fundo branca
+  color: #333;             // Cor do texto
+  font-size: 16px;         // Tamanho da fonte
+  appearance: none;        // Remove a aparência padrão do navegador
+  cursor: pointer;         // Cursor de pointer ao passar sobre o select
+
+  &:focus {
+    border-color: #0056b3; // Cor da borda ao focar no select
+    outline: none;         // Remove o contorno padrão
+  }
+
+  option {
+    background-color: #fff; // Cor de fundo das opções
+    color: #333;            // Cor do texto das opções
+  }
+}

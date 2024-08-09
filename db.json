@@ -171,6 +171,11 @@
       "email": "pedro@email.com",
       "senha": "123",
       "id": 502676785
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676786
     }
   ],
   "clientes": [
@@ -218,7 +223,7 @@
   "pedidos": [
     {
       "id": 80892615,
-      "status": "Pendente",
+      "status": "Cancelado",
       "cliente": 26327681,
       "produto": [
         291226238,
@@ -226,18 +231,19 @@
       ],
       "detail": [
         {
-          "nome": "Deathadder",
-          "categoria": "mouse"
+          "nome": "Teste",
+          "categoria": "processador"
         },
         {
-          "nome": "32Gb ",
-          "categoria": "memoriaRam"
+          "nome": "Teste2",
+          "categoria": "placaMae"
         }
-      ]
+      ],
+      "$showDetail": true
     },
     {
       "id": 536108287,
-      "status": "Pendente",
+      "status": "Concluido",
       "cliente": 502676766,
       "produto": [
         715115228,
@@ -272,6 +278,45 @@
         {
           "nome": "GFallen",
           "categoria": "teclado"
+        }
+      ],
+      "$showDetail": false
+    },
+    {
+      "id": 39409889,
+      "status": "Pendente",
+      "cliente": 26327681,
+      "produto": [
+        715115228,
+        832020957
+      ],
+      "detail": [
+        {
+          "nome": "AMD",
+          "categoria": "mouse"
+        },
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento"
+        }
+      ]
+    },
+    {
+      "id": 268147875,
+      "status": "Pendente",
+      "cliente": 26327681,
+      "produto": [
+        751507559,
+        832020957
+      ],
+      "detail": [
+        {
+          "nome": "32Gb ",
+          "categoria": "memoriaRam"
+        },
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento"
         }
       ]
     }

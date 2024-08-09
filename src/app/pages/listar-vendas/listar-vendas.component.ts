@@ -109,6 +109,8 @@ export class ListarVendasComponent implements OnInit{
     private clienteService: ClienteService
   ){}
 
+  
+
   ngOnInit(): void {
     this.columns = this.getColumns();
     
@@ -145,13 +147,16 @@ export class ListarVendasComponent implements OnInit{
   }
 
   edit(item: Pedido) {
-    console.log(item);
+    console.log('edit: item',item);
     this.currentPedido = item; // Atualize para o pedido completo
     this.detail = item.detail; // Mantenha os detalhes separados
     this.modalEditar.open();
+    console.log('currentPedido', this.currentPedido)
+    console.log('detail', this.detail)
   }
   
-  editarPedido() {
+  editarPedido(currentPedido: Pedido) {
+    console.log( currentPedido)
     if (this.currentPedido) {
       this.pedidoService.editar(this.currentPedido).subscribe(() => {
         console.log('Pedido editado');
