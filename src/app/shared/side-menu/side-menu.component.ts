@@ -24,7 +24,8 @@ export class SideMenuComponent {
         {label: 'Realizar pedidos', icon: 'ph ph-user', link: '/pages/pedidos-venda'},
         {label: 'Meus pedidos', icon: 'ph ph-user', link: '/pages/listar-vendas'},
       ]
-    }
+    },
+    {label: 'Dashboard', icon: 'po-icon po-icon-clipboard', shortLabel: 'Dashboard', link: '/pages/dashboard'}
   ]
 
   constructor(

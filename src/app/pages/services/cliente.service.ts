@@ -47,6 +47,13 @@ export class ClienteService {
     return this.http.post<Clientelogin>(`${this.apiUrlLogin}/login`, clienteLogin)
   }
 
+  getClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.apiUrl);
+  }
+
+  getClientePorId(id: number): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.apiUrl}/${id}`);
+  }
 
   getClientePorEmail(email: string): Observable<Cliente> {
     return this.http.get<Cliente[]>(`${this.apiUrlEmail}/clientes?email=${email}`).pipe(

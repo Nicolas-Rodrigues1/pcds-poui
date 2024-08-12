@@ -6,6 +6,7 @@ import { PoMenuModule } from '@po-ui/ng-components';
 import { PoModalModule } from '@po-ui/ng-components';
 import { PoTemplatesModule } from "@po-ui/ng-templates";
 import { PoTableModule } from '@po-ui/ng-components';
+import { PoChartModule } from '@po-ui/ng-components';
 
 @NgModule({
     exports:[
@@ -18,7 +19,8 @@ import { PoTableModule } from '@po-ui/ng-components';
         PoTemplatesModule,
         PoWidgetModule,
         PoDynamicModule,
-        PoTableModule
+        PoTableModule,
+        PoChartModule
     ]
 })
 
