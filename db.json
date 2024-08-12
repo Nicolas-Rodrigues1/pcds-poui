@@ -216,6 +216,11 @@
       "email": "teste@email.com",
       "senha": "123",
       "id": 502676794
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676795
     }
   ],
   "clientes": [
@@ -362,7 +367,7 @@
     },
     {
       "id": 47001806,
-      "status": "Pendente",
+      "status": "Processando",
       "cliente": 502676766,
       "produto": [
         832020957,

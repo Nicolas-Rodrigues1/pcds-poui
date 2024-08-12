@@ -11,8 +11,9 @@ import { ClienteService } from '../services/cliente.service';
 })
 export class DashboardComponent implements OnInit{
 
-  quantidadePedidoPorClienteNome: Array<string> = []
   quantidadePedidoPorCliente: Array<PoChartSerie> = [] 
+  quantidadePedidoPorStatus: Array<PoChartSerie> = []
+  quantidadePedidoPorStatusType: PoChartType = PoChartType.Donut;
 
   constructor(
     private pedidoService: PedidoService,
@@ -20,7 +21,8 @@ export class DashboardComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.carregarQuantidadePedidoPorCliente()
+    this.carregarQuantidadePedidoPorCliente();
+    this.carregarQuantidadePedidoPorStatus();
   }
 
   carregarQuantidadePedidoPorCliente(){
@@ -49,7 +51,26 @@ export class DashboardComponent implements OnInit{
   }
 
   carregarQuantidadePedidoPorStatus(){
-    
+    this.pedidoService.getItems().subscribe((pedidos: Pedido[]) =>{
+      const contagemPedidoPorStatus: { [status: string]: number} = {};
+
+      pedidos.forEach(pedido => {
+        console.log(contagemPedidoPorStatus)
+        if(contagemPedidoPorStatus[pedido.status]){
+          contagemPedidoPorStatus[pedido.status]++;
+        } else {
+          contagemPedidoPorStatus[pedido.status] = 1;
+        }
+        console.log('das',contagemPedidoPorStatus)
+      });
+
+      this.quantidadePedidoPorStatus = Object.keys(contagemPedidoPorStatus).map(status =>{
+        return {
+          label: status,
+          data: contagemPedidoPorStatus[status]
+        }
+      })
+    })
   }
 }
 
