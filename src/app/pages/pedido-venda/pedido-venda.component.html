@@ -33,6 +33,7 @@
             <div *ngFor="let produto of produtosFiltrados" class="grid-item">
                 <p>Nome: {{ produto.nome }}</p>
                 <p>Categoria: {{ produto.categoria }}</p>
+                <p>Preço: R${{produto.preco}}</p>
                 <po-button p-icon="po-icon-plus-circle" (p-click)="selecionarProduto(produto)"></po-button>
             </div>
         </div>
@@ -48,8 +49,13 @@
             <div class="produto-carrinho" *ngFor="let produto of listaProdutosCarrinhoShow">
                 <p>Nome: {{ produto.nome }}</p>
                 <p>Categoria: {{ produto.categoria }}</p>
+                 <p>Preço: R${{produto.preco}}</p>
                 <po-button (p-click)="removerProduto(produto)" p-icon="po-icon-minus-circle"></po-button>
             </div>
+            <po-info
+            p-label="Valor total do carrinho"
+            [p-value]="'R$ ' + precoTotalCarrinho.toFixed(2)">
+            </po-info>
             <po-button class="realizar-pedido-button" (click)="realizarPedido()" [p-disabled]="listaProdutosCarrinho.length === 0" p-label="Realizar pedido "></po-button>
         </div>
     </div>

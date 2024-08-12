@@ -82,6 +82,16 @@
           <option value="mouse">Mouse</option>
           <option value="teclado">Teclado</option>
         </select>
+        <br/>
+        <label for="preco">Preco</label>
+        <input
+          type="number"
+          class="input"
+          name="preco"
+          placeholder="Digite o preco"
+          [(ngModel)]="produto.preco"
+          required
+        />
       </po-widget>
     </div>
     <div>

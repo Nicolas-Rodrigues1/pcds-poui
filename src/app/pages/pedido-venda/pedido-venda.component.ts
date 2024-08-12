@@ -32,6 +32,7 @@ export class PedidoVendaComponent implements OnInit {
   listaDetail: PedidoDetail[] = [];
   listaProdutosCarrinho: number[] = [];
   listaProdutosCarrinhoShow: Produto[] = [];
+  precoTotalCarrinho: number = 0;
   listaProdutos: Produto[] = [];
   produtosFiltrados: Produto[] = [];
   categoriaSelecionada = '';
@@ -107,10 +108,13 @@ export class PedidoVendaComponent implements OnInit {
   adicionarProdutoCarrinho() {
     if (this.produtoSelecionado) {
       this.listaProdutosCarrinho.push(this.produtoSelecionado.id);
+      this.precoTotalCarrinho += this.produtoSelecionado.preco
+      console.log(this.precoTotalCarrinho)
 
       const detalheProduto: PedidoDetail = {
         nome: this.produtoSelecionado.nome,
-        categoria: this.produtoSelecionado.categoria
+        categoria: this.produtoSelecionado.categoria,
+        preco: this.produtoSelecionado.preco
       }
 
       this.listaDetail.push(detalheProduto)
@@ -133,7 +137,8 @@ export class PedidoVendaComponent implements OnInit {
         status: this.status,
         cliente: this.clienteSelecionado.id,
         produto: this.listaProdutosCarrinho,
-        detail: this.listaDetail
+        detail: this.listaDetail,
+        precoPedido: this.precoTotalCarrinho
       };
       console.log(this.listaDetail)
 
@@ -143,6 +148,8 @@ export class PedidoVendaComponent implements OnInit {
     }
     this.listaProdutosCarrinho = [];
     this.listaProdutosCarrinhoShow = [];
+    this.precoTotalCarrinho = 0;
+    this.listaDetail = []
   }
 
   proximaPagina(): void {

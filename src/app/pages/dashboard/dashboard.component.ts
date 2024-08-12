@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit{
   quantidadePedidoPorCliente: Array<PoChartSerie> = [] 
   quantidadePedidoPorStatus: Array<PoChartSerie> = []
   quantidadePedidoPorStatusType: PoChartType = PoChartType.Donut;
+  valorPedidoPorCliente: Array<PoChartSerie> = []
 
   constructor(
     private pedidoService: PedidoService,
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit{
   ngOnInit(): void {
     this.carregarQuantidadePedidoPorCliente();
     this.carregarQuantidadePedidoPorStatus();
+    this.carregarPrecoTotalPorCliente();
   }
 
   carregarQuantidadePedidoPorCliente(){
@@ -55,13 +57,11 @@ export class DashboardComponent implements OnInit{
       const contagemPedidoPorStatus: { [status: string]: number} = {};
 
       pedidos.forEach(pedido => {
-        console.log(contagemPedidoPorStatus)
         if(contagemPedidoPorStatus[pedido.status]){
           contagemPedidoPorStatus[pedido.status]++;
         } else {
           contagemPedidoPorStatus[pedido.status] = 1;
         }
-        console.log('das',contagemPedidoPorStatus)
       });
 
       this.quantidadePedidoPorStatus = Object.keys(contagemPedidoPorStatus).map(status =>{
@@ -69,8 +69,36 @@ export class DashboardComponent implements OnInit{
           label: status,
           data: contagemPedidoPorStatus[status]
         }
-      })
-    })
+      });
+    });
+  };
+
+  carregarPrecoTotalPorCliente(){
+    this.pedidoService.getItems().subscribe((pedidos: Pedido[]) => {
+      const valorTotalPorCliente: { [clienteId: number]: number } = {};
+
+      pedidos.forEach(pedido => {
+        if (valorTotalPorCliente[pedido.cliente]) {
+          // console.log('pedido.cliente',pedido.cliente)
+          // console.log('valortotal',valorTotalPorCliente)
+          // console.log('ambos',valorTotalPorCliente[pedido.cliente])
+          valorTotalPorCliente[pedido.cliente] += pedido.detail.reduce((total, item) => total + item.preco, 0);
+        } else {
+          // console.log(valorTotalPorCliente)
+          valorTotalPorCliente[pedido.cliente] = pedido.detail.reduce((total, item) => total + item.preco, 0);
+        }
+      });
+
+      this.clienteService.getClientes().subscribe(clientes => {
+        this.valorPedidoPorCliente = clientes.map(cliente => ({
+          label: cliente.nome,
+          data: valorTotalPorCliente[cliente.id] || 0
+        }));
+
+        this.valorPedidoPorCliente = this.valorPedidoPorCliente.filter(serie => serie.data)
+      });
+    });
   }
+
 }
 

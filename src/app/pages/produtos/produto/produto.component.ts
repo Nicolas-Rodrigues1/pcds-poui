@@ -23,7 +23,8 @@ export class ProdutoComponent implements OnInit{
   @Input() produto: Produto = {
     id: 0,
     categoria: '',
-    nome: ''
+    nome: '',
+    preco: 0
   }
 
   fields: Array<PoDynamicFormField> = [
@@ -47,6 +48,12 @@ export class ProdutoComponent implements OnInit{
       ],
       fieldLabel: 'categoria',
       fieldValue: 'code'
+    },
+    {
+      property: 'preco',
+      label: 'Preço',
+      required: true,
+      type: 'currency'
     }
   ]
 

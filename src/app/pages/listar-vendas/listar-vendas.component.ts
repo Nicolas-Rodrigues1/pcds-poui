@@ -28,13 +28,15 @@ export class ListarVendasComponent implements OnInit{
     status: '',
     cliente: 0,
     produto: [],
-    detail: []
+    detail: [],
+    precoPedido: 0
   }
 
   @Input() produto: Produto = {
     id: 0,
     nome: '',
-    categoria: ''
+    categoria: '',
+    preco: 0
   }
 
   columns!: Array<PoTableColumn>;
@@ -45,7 +47,8 @@ export class ListarVendasComponent implements OnInit{
     status: '',
     cliente: 0,
     produto: [],
-    detail: []
+    detail: [],
+    precoPedido: 0
   };
 
   fields: Array<PoDynamicFormField> = [
@@ -91,14 +94,16 @@ export class ListarVendasComponent implements OnInit{
     let columnsDetail: PoTableDetail = {
       columns: [
         { property: 'nome', label: 'Nome' },
-        { property: 'categoria', label: 'Categoria' }
+        { property: 'categoria', label: 'Categoria' },
+        { property: 'preco', label: 'Preço'}
       ],
       typeHeader: 'top'
     }
     return [
       {property: 'detail', label: 'Detalhes', type:'detail', detail: columnsDetail},
       {property: 'id', label: 'ID'},
-      {property: 'status', label: 'Status'}
+      {property: 'status', label: 'Status'},
+      {property: 'precoPedido', label: 'Preço total'}
     ]
   }
 
@@ -108,8 +113,6 @@ export class ListarVendasComponent implements OnInit{
     private emailService: EmailService,
     private clienteService: ClienteService
   ){}
-
-  
 
   ngOnInit(): void {
     this.columns = this.getColumns();
@@ -168,7 +171,5 @@ export class ListarVendasComponent implements OnInit{
       });
     }
   }
-
-
 
 }

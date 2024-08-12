@@ -12,7 +12,8 @@ export interface PessoaUsuaria {
 export interface Produto{
     id: number,
     categoria: string,
-    nome: string
+    nome: string,
+    preco: number
 }
 
 export interface Cliente{
@@ -34,7 +35,8 @@ export interface Clientelogin{
 
 export interface PedidoDetail{
     nome: string,
-    categoria: string
+    categoria: string,
+    preco: number
 }
 
 export interface Pedido{
@@ -42,5 +44,6 @@ export interface Pedido{
     status: string,
     cliente: number,
     produto: number[],
-    detail: PedidoDetail[]
+    detail: PedidoDetail[],
+    precoPedido: number
 }

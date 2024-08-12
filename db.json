@@ -3,67 +3,86 @@
     {
       "id": 715115228,
       "nome": "AMD",
-      "categoria": "mouse"
+      "categoria": "mouse",
+      "preco": 321
     },
     {
       "id": 832020957,
       "nome": "HD 500GB",
-      "categoria": "armazenamento"
+      "categoria": "armazenamento",
+      "preco": 111
     },
     {
       "id": 267415355,
       "nome": "AMD Ryzen",
-      "categoria": "processador"
+      "categoria": "processador",
+      "preco": 321
     },
     {
       "id": 985548409,
       "nome": "Intel i5-12400f",
-      "categoria": "processador"
+      "categoria": "processador",
+      "preco": 3213
     },
     {
       "id": 183921362,
       "nome": "Dell 24\"",
-      "categoria": "monitor"
+      "categoria": "monitor",
+      "preco": 800
     },
     {
       "id": 932961919,
       "nome": "Benq 240HZ",
-      "categoria": "monitor"
+      "categoria": "monitor",
+      "preco": 2000
     },
     {
       "id": 291226238,
       "nome": "Deathadder",
-      "categoria": "mouse"
+      "categoria": "mouse",
+      "preco": 300
     },
     {
       "id": 575953112,
       "nome": "GFallen",
-      "categoria": "teclado"
+      "categoria": "teclado",
+      "preco": 200
     },
     {
       "id": 439989779,
       "nome": "Logitech",
-      "categoria": "mouse"
+      "categoria": "mouse",
+      "preco": 100
     },
     {
       "id": 513050567,
       "nome": "Zowie",
-      "categoria": "mouse"
+      "categoria": "mouse",
+      "preco": 200
     },
     {
       "id": 751507559,
       "nome": "32Gb ",
-      "categoria": "memoriaRam"
+      "categoria": "memoriaRam",
+      "preco": 400
     },
     {
       "id": 10873853,
       "nome": "ASROCK",
-      "categoria": "placaMae"
+      "categoria": "placaMae",
+      "preco": 760
     },
     {
       "id": 694340051,
       "nome": "HP",
-      "categoria": "mouse"
+      "categoria": "mouse",
+      "preco": 32
+    },
+    {
+      "id": 493107517,
+      "nome": "Teste preço",
+      "categoria": "processador",
+      "preco": 20
     }
   ],
   "login": [
@@ -221,6 +240,81 @@
       "email": "pedro@email.com",
       "senha": "123",
       "id": 502676795
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676796
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676797
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676798
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676799
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676800
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676801
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676802
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676803
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676804
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676805
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676806
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676807
+    },
+    {
+      "email": "teste@email.com",
+      "senha": "123",
+      "id": 502676808
+    },
+    {
+      "email": "ana@email.com",
+      "senha": "123",
+      "id": 502676809
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676810
     }
   ],
   "clientes": [
@@ -267,141 +361,124 @@
   ],
   "pedidos": [
     {
-      "id": 80892615,
-      "status": "Cancelado",
-      "cliente": 26327681,
-      "produto": [
-        291226238,
-        751507559
-      ],
-      "detail": [
-        {
-          "nome": "Teste",
-          "categoria": "processador"
-        },
-        {
-          "nome": "Teste2",
-          "categoria": "placaMae"
-        }
-      ],
-      "$showDetail": true
-    },
-    {
-      "id": 536108287,
-      "status": "Concluido",
+      "id": 394991640,
+      "status": "Pendente",
       "cliente": 502676766,
       "produto": [
-        715115228,
-        985548409,
-        575953112
+        832020957
       ],
       "detail": [
         {
           "nome": "HD 500GB",
-          "categoria": "armazenamento"
+          "categoria": "armazenamento",
+          "preco": 111
+        }
+      ],
+      "precoPedido": 111
+    },
+    {
+      "id": 726124737,
+      "status": "Processando",
+      "cliente": 26327681,
+      "produto": [
+        715115228
+      ],
+      "detail": [
+        {
+          "nome": "AMD",
+          "categoria": "mouse",
+          "preco": 321
+        }
+      ],
+      "precoPedido": 321
+    },
+    {
+      "id": 436481923,
+      "status": "Concluido",
+      "cliente": 26327681,
+      "produto": [
+        715115228,
+        832020957
+      ],
+      "detail": [
+        {
+          "nome": "AMD",
+          "categoria": "mouse",
+          "preco": 321
         },
         {
-          "nome": "Dell 24\"",
-          "categoria": "monitor"
+          "nome": "HD 500GB",
+          "categoria": "armazenamento",
+          "preco": 111
+        }
+      ],
+      "precoPedido": 432
+    },
+    {
+      "id": 24878828,
+      "status": "Pendente",
+      "cliente": 26327681,
+      "produto": [
+        575953112,
+        439989779
+      ],
+      "detail": [
+        {
+          "nome": "GFallen",
+          "categoria": "teclado",
+          "preco": 200
+        },
+        {
+          "nome": "Logitech",
+          "categoria": "processador",
+          "preco": 100
+        }
+      ],
+      "precoPedido": 300
+    },
+    {
+      "id": 767996094,
+      "status": "Concluido",
+      "cliente": 736008588,
+      "produto": [
+        832020957,
+        267415355,
+        932961919
+      ],
+      "detail": [
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento",
+          "preco": 111
         },
         {
           "nome": "AMD Ryzen",
-          "categoria": "processador"
+          "categoria": "processador",
+          "preco": 321
         },
         {
           "nome": "Benq 240HZ",
-          "categoria": "monitor"
-        },
-        {
-          "nome": "AMD",
-          "categoria": "mouse"
-        },
-        {
-          "nome": "Intel i5-12400f",
-          "categoria": "processador"
-        },
-        {
-          "nome": "GFallen",
-          "categoria": "teclado"
+          "categoria": "monitor",
+          "preco": 2000
         }
       ],
-      "$showDetail": false
+      "precoPedido": 2432
     },
     {
-      "id": 39409889,
-      "status": "Pendente",
-      "cliente": 26327681,
-      "produto": [
-        715115228,
-        832020957
-      ],
-      "detail": [
-        {
-          "nome": "AMD",
-          "categoria": "mouse"
-        },
-        {
-          "nome": "HD 500GB",
-          "categoria": "armazenamento"
-        }
-      ]
-    },
-    {
-      "id": 268147875,
-      "status": "Pendente",
-      "cliente": 26327681,
-      "produto": [
-        751507559,
-        832020957
-      ],
-      "detail": [
-        {
-          "nome": "32Gb ",
-          "categoria": "memoriaRam"
-        },
-        {
-          "nome": "HD 500GB",
-          "categoria": "armazenamento"
-        }
-      ]
-    },
-    {
-      "id": 47001806,
-      "status": "Processando",
-      "cliente": 502676766,
-      "produto": [
-        832020957,
-        183921362
-      ],
-      "detail": [
-        {
-          "nome": "HD 500GB",
-          "categoria": "armazenamento"
-        },
-        {
-          "nome": "Dell 24\"",
-          "categoria": "monitor"
-        }
-      ]
-    },
-    {
-      "id": 324870593,
-      "status": "Pendente",
+      "id": 344194364,
+      "status": "Cancelado",
       "cliente": 44025360,
       "produto": [
-        715115228,
-        832020957
+        10873853
       ],
       "detail": [
         {
-          "nome": "AMD",
-          "categoria": "mouse"
-        },
-        {
-          "nome": "HD 500GB",
-          "categoria": "armazenamento"
+          "nome": "ASROCK",
+          "categoria": "placaMae",
+          "preco": 760
         }
-      ]
+      ],
+      "precoPedido": 760
     }
   ]
 }
