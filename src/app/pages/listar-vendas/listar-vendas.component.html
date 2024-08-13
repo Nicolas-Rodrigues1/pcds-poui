@@ -54,13 +54,13 @@
         </select>
     </div>
 
-    <div *ngFor="let produto of detail">
+    <div *ngFor="let produto of detail; let i = index; trackBy: trackByIndex">
       <po-widget>
         <label for="nome">Nome</label>
         <input
           type="text"
           class="input"
-          name="nome"
+          name="nome{{i}}"
           placeholder="Digite o nome"
           [(ngModel)]="produto.nome"
           required
@@ -69,7 +69,7 @@
         <label for="categoria">Categoria</label>
         <select
           class="input"
-          name="categoria"
+          name="categoria{{i}}"
           [(ngModel)]="produto.categoria"
           required
         >
@@ -82,13 +82,13 @@
           <option value="mouse">Mouse</option>
           <option value="teclado">Teclado</option>
         </select>
-        <br/>
-        <label for="preco">Preco</label>
+        <br />
+        <label for="preco">Preço</label>
         <input
           type="number"
           class="input"
-          name="preco"
-          placeholder="Digite o preco"
+          name="preco{{i}}"
+          placeholder="Digite o preço"
           [(ngModel)]="produto.preco"
           required
         />

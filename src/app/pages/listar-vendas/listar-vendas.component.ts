@@ -154,7 +154,7 @@ export class ListarVendasComponent implements OnInit{
   }
 
   edit(item: Pedido) {
-    // console.log('edit: item',item);
+    console.log('edit: item',item.detail);
     this.currentPedido = item; // Atualize para o pedido completo
     this.detail = item.detail; // Mantenha os detalhes separados
     this.modalEditar.open();
@@ -170,6 +170,10 @@ export class ListarVendasComponent implements OnInit{
         this.modalEditar.close();
       });
     }
+  }
+
+  trackByIndex(index: number, item: any): any {
+    return index;
   }
 
 }

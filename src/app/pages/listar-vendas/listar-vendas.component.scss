@@ -52,7 +52,7 @@ app-container {
 select {
   width: 100%;             // Largura total do elemento pai
   padding: 10px;           // Espaçamento interno
-  border: 2px solid #007bff; // Borda de 2px de largura e cor azul
+  border: 2px solid #525355; // Borda de 2px de largura e cor azul
   border-radius: 4px;      // Bordas arredondadas
   background-color: #fff;  // Cor de fundo branca
   color: #333;             // Cor do texto
@@ -61,7 +61,7 @@ select {
   cursor: pointer;         // Cursor de pointer ao passar sobre o select
 
   &:focus {
-    border-color: #0056b3; // Cor da borda ao focar no select
+    border-color: #525355; // Cor da borda ao focar no select
     outline: none;         // Remove o contorno padrão
   }
 
