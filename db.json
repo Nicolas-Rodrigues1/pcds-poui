@@ -315,6 +315,11 @@
       "email": "nicolas@email.com",
       "senha": "123",
       "id": 502676810
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676811
     }
   ],
   "clientes": [
@@ -479,6 +484,28 @@
         }
       ],
       "precoPedido": 760
+    },
+    {
+      "id": 236324201,
+      "status": "Pendente",
+      "cliente": 502676766,
+      "produto": [
+        715115228,
+        832020957
+      ],
+      "detail": [
+        {
+          "nome": "AMD",
+          "categoria": "mouse",
+          "preco": 321
+        },
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento",
+          "preco": 111
+        }
+      ],
+      "precoPedido": 432
     }
   ]
 }

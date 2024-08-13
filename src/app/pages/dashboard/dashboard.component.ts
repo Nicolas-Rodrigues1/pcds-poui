@@ -73,29 +73,27 @@ export class DashboardComponent implements OnInit{
     });
   };
 
-  carregarPrecoTotalPorCliente(){
+  carregarPrecoTotalPorCliente() {
     this.pedidoService.getItems().subscribe((pedidos: Pedido[]) => {
       const valorTotalPorCliente: { [clienteId: number]: number } = {};
-
+      // console.log(valorTotalPorCliente)
       pedidos.forEach(pedido => {
+        
         if (valorTotalPorCliente[pedido.cliente]) {
-          // console.log('pedido.cliente',pedido.cliente)
-          // console.log('valortotal',valorTotalPorCliente)
-          // console.log('ambos',valorTotalPorCliente[pedido.cliente])
-          valorTotalPorCliente[pedido.cliente] += pedido.detail.reduce((total, item) => total + item.preco, 0);
+          valorTotalPorCliente[pedido.cliente] += pedido.precoPedido;
+
         } else {
-          // console.log(valorTotalPorCliente)
-          valorTotalPorCliente[pedido.cliente] = pedido.detail.reduce((total, item) => total + item.preco, 0);
+          valorTotalPorCliente[pedido.cliente] = pedido.precoPedido;
         }
       });
-
+  
       this.clienteService.getClientes().subscribe(clientes => {
         this.valorPedidoPorCliente = clientes.map(cliente => ({
           label: cliente.nome,
-          data: valorTotalPorCliente[cliente.id] || 0
+          data: valorTotalPorCliente[cliente.id] 
         }));
-
-        this.valorPedidoPorCliente = this.valorPedidoPorCliente.filter(serie => serie.data)
+  
+        this.valorPedidoPorCliente = this.valorPedidoPorCliente.filter(serie => serie.data);
       });
     });
   }

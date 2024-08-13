@@ -109,7 +109,7 @@ export class PedidoVendaComponent implements OnInit {
     if (this.produtoSelecionado) {
       this.listaProdutosCarrinho.push(this.produtoSelecionado.id);
       this.precoTotalCarrinho += this.produtoSelecionado.preco
-      console.log(this.precoTotalCarrinho)
+      // console.log(this.precoTotalCarrinho)
 
       const detalheProduto: PedidoDetail = {
         nome: this.produtoSelecionado.nome,
@@ -140,7 +140,7 @@ export class PedidoVendaComponent implements OnInit {
         detail: this.listaDetail,
         precoPedido: this.precoTotalCarrinho
       };
-      console.log(this.listaDetail)
+      // console.log(this.listaDetail)
 
       this.pedidoService.criarPedido(novoPedido).subscribe(() => {
         console.log('Pedido realizado com sucesso');
