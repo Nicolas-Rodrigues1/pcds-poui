@@ -50,13 +50,14 @@ export class LoginComponent {
 
   login(dynamicForm: PoDynamicFormComponent){
     const formValues = dynamicForm.form.value;
-    const email = formValues.email;
-    const senha = formValues.password;
+    const login = formValues.email;
+    const password = formValues.password;
+    const email = 'piloto@email.com'
 
-    console.log('E-mail:', email);
-    console.log('Senha:', senha);
+    console.log('login', login);
+    console.log('password:', password);
 
-    this.authService.autenticar(email, senha).subscribe({
+    this.authService.autenticar(login, password).subscribe({
       next: (value) => {
         console.log('Autenticado', value);
         this.router.navigateByUrl('/auth/home');
@@ -67,6 +68,6 @@ export class LoginComponent {
       }
     });
 
-    this.emailService.setEmail(email);
+    // this.emailService.setEmail(email);
   }
 }

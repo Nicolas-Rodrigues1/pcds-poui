@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: 'http://api.portalpcds.com'
+    apiUrl: 'http://74.48.140.13:8081'
 };
