@@ -1,0 +1,27 @@
+<app-side-menu></app-side-menu>
+<app-container>
+  <div class="dashboard-container">
+    <div class="chart-container">
+      <po-chart
+        p-title="Quantidade de pedido por cliente"
+        [p-series]="quantidadePedidoPorCliente"
+      >
+      </po-chart>
+    </div>
+    <div class="chart-container">
+      <po-chart
+        p-title="Quantidade de pedido por status"
+        [p-series]="quantidadePedidoPorStatus"
+        [p-type]="quantidadePedidoPorStatusType"
+      >
+      </po-chart>
+    </div>
+    <div class="chart-container">
+      <po-chart
+        p-title="Valor de pedido por cliente em R$"
+        [p-series]="valorPedidoPorCliente"
+      >
+      </po-chart>
+    </div>
+  </div>
+</app-container>

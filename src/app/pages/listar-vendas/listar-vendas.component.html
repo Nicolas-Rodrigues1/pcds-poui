@@ -1,0 +1,104 @@
+<app-side-menu></app-side-menu>
+<app-container>
+  <div class="po-font-text-bold">
+    <h1>Seus pedidos</h1>
+  </div>
+  <po-table
+    p-container="true"
+    p-hide-table-search="true"
+    [p-columns]="columns"
+    [p-actions]="actions"
+    [p-items]="items"
+  ></po-table>
+  <!-- <po-widget p-title="Esses são seus pedidos">
+        <div class="grid-container">
+            <div *ngFor="let pedido of listaPedidos" class="grid-item">
+                <h3>Id do pedido: {{ pedido.id }}</h3>
+                <p>Status: {{ pedido.status }}</p>
+                <p>Produtos:</p>
+                <ul class="produto-list">
+                    <li *ngFor="let produtoId of pedido.produto">
+                        {{ getProdutoNome(produtoId) }}
+                        {{ getProdutoCategoria(produtoId) }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </po-widget> -->
+</app-container>
+
+<po-modal #modalShow p-click-out="true" p-title="Detalhes do Pedido">
+  <div *ngIf="detail && detail.length > 0">
+    <h1>ID: {{ currentPedido.id }}</h1>
+    <p>Status: {{ currentPedido.status }}</p>
+    <br />
+    <ul>
+      <h2>Produtos</h2>
+      <li *ngFor="let produto of detail">
+        Nome: {{ produto.nome }} | Categoria: {{ produto.categoria }}
+      </li>
+    </ul>
+  </div>
+</po-modal>
+
+<po-modal #modalEditar p-click-out="true" p-title="Editar Pedido">
+  <form>
+    <div >
+        <h1>Altere os dados que desejar</h1>
+        <label for="status">Status</label>
+        <select class="input" name="status" [(ngModel)]="currentPedido.status">
+            <option value="Pendente">Pendente</option>
+            <option value="Processando">Processando</option>
+            <option value="Concluido">Concluído</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+    </div>
+
+    <div *ngFor="let produto of detail; let i = index; trackBy: trackByIndex">
+      <po-widget>
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="input"
+          name="nome{{i}}"
+          placeholder="Digite o nome"
+          [(ngModel)]="produto.nome"
+          required
+        />
+        <br />
+        <label for="categoria">Categoria</label>
+        <select
+          class="input"
+          name="categoria{{i}}"
+          [(ngModel)]="produto.categoria"
+          required
+        >
+          <option value="" disabled>Selecione a categoria</option>
+          <option value="processador">Processador</option>
+          <option value="placaMae">Placa Mãe</option>
+          <option value="memoriaRam">Memória RAM</option>
+          <option value="armazenamento">Armazenamento</option>
+          <option value="monitor">Monitor</option>
+          <option value="mouse">Mouse</option>
+          <option value="teclado">Teclado</option>
+        </select>
+        <br />
+        <label for="preco">Preço</label>
+        <input
+          type="number"
+          class="input"
+          name="preco{{i}}"
+          placeholder="Digite o preço"
+          [(ngModel)]="produto.preco"
+          required
+        />
+      </po-widget>
+    </div>
+    <div>
+    </div>
+  </form>
+  <po-modal-footer>
+    <po-button (p-click)="editarPedido(currentPedido)" p-label="Salvar"></po-button>
+    <po-button p-label="Close" (p-click)="modalEditar.close()"> </po-button>
+  </po-modal-footer>
+</po-modal>

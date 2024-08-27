@@ -1,0 +1,72 @@
+app-container {
+    margin-left: 22%;
+
+  po-table{
+    --color: #000000;
+    --color-hover: #bbbbbb;
+    --background-color-headline: #7a0a9c;
+  }
+
+  h1{
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .grid-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .grid-item h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+  }
+
+  .produto-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .produto-list li {
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .produto-list li:last-child {
+    border-bottom: none;
+  }
+}
+
+
+select {
+  width: 100%;             // Largura total do elemento pai
+  padding: 10px;           // Espaçamento interno
+  border: 2px solid #525355; // Borda de 2px de largura e cor azul
+  border-radius: 4px;      // Bordas arredondadas
+  background-color: #fff;  // Cor de fundo branca
+  color: #333;             // Cor do texto
+  font-size: 16px;         // Tamanho da fonte
+  appearance: none;        // Remove a aparência padrão do navegador
+  cursor: pointer;         // Cursor de pointer ao passar sobre o select
+
+  &:focus {
+    border-color: #525355; // Cor da borda ao focar no select
+    outline: none;         // Remove o contorno padrão
+  }
+
+  option {
+    background-color: #fff; // Cor de fundo das opções
+    color: #333;            // Cor do texto das opções
+  }
+}

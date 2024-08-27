@@ -1,0 +1,49 @@
+<app-side-menu ></app-side-menu>
+<app-container>
+    <div class="po-row">
+        <po-widget>
+            <div class="grid-container">
+                <div *ngFor="let produto of listaProdutos" class="grid-item">
+                    <p>Nome: {{ produto.nome }}</p>
+                    <p>Categoria: {{ produto.categoria }}</p>
+                    <p>Preço: R${{produto.preco}}</p>
+                    <div class="po-row">
+                        <po-button class="po-md-4" p-icon="po-icon po-icon-delete"
+                            (p-click)="selecionarProduto(produto)" (p-click)="openExcluir(produto)">
+                        </po-button>
+                        <po-button class="po-md-4" p-icon="po-icon po-icon-edit"
+                            (p-click)="selecionarProduto(produto)" (p-click)="openEditar(produto)">
+                        </po-button>
+                    </div>
+                </div>
+                <div class="buttonAdicionar">
+                    <po-button p-label="Adicionar Produto" routerLink="/pages/criarProduto"></po-button>
+                </div>
+                <div class="paginacao">
+                    <po-button class="po-md-4" [p-disabled]="page === 1" p-label="Página anterior"
+                        (p-click)="paginaAnterior()"></po-button>
+                    <span>Página {{ page }}</span>
+                    <po-button class="po-md-4" p-label="Próxima página" (p-click)="proximaPagina()"></po-button>
+                </div>
+            </div>
+        </po-widget>
+    </div>
+
+    <po-modal #modalExcluir p-title="Excluir Produto" >
+        <p>
+            O produto {{ produtoSelecionado?.nome }} será apagado. Confirmar exclusão?
+        </p>
+        <po-button class="po-md-3" p-label="Confirmar" (p-click)="excluirProduto()"></po-button>
+        <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+    </po-modal>
+
+    <po-modal #modalEditar p-title="Editar Produto">
+        <p>Altere os dados que desejar</p>
+        <po-widget>
+            <po-dynamic-form #dynamicForm p-auto-focus="nome" [p-fields]="fields"
+                [p-value]="produtoSelecionado"></po-dynamic-form>
+            <po-button class="po-md-3" p-label="Confirmar" (p-click)="editarProduto()"></po-button>
+            <po-button class="po-md-3" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+        </po-widget>
+    </po-modal>
+</app-container>

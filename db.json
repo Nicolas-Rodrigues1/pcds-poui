@@ -1,0 +1,551 @@
+{
+  "produtos": [
+    {
+      "id": 715115228,
+      "nome": "AMD",
+      "categoria": "mouse",
+      "preco": 321
+    },
+    {
+      "id": 832020957,
+      "nome": "HD 500GB",
+      "categoria": "armazenamento",
+      "preco": 111
+    },
+    {
+      "id": 267415355,
+      "nome": "AMD Ryzen",
+      "categoria": "processador",
+      "preco": 321
+    },
+    {
+      "id": 985548409,
+      "nome": "Intel i5-12400f",
+      "categoria": "processador",
+      "preco": 3213
+    },
+    {
+      "id": 183921362,
+      "nome": "Dell 24\"",
+      "categoria": "monitor",
+      "preco": 800
+    },
+    {
+      "id": 932961919,
+      "nome": "Benq 240HZ",
+      "categoria": "monitor",
+      "preco": 2000
+    },
+    {
+      "id": 291226238,
+      "nome": "Deathadder",
+      "categoria": "mouse",
+      "preco": 300
+    },
+    {
+      "id": 575953112,
+      "nome": "GFallen",
+      "categoria": "teclado",
+      "preco": 200
+    },
+    {
+      "id": 439989779,
+      "nome": "Logitech",
+      "categoria": "mouse",
+      "preco": 100
+    },
+    {
+      "id": 513050567,
+      "nome": "Zowie",
+      "categoria": "mouse",
+      "preco": 200
+    },
+    {
+      "id": 751507559,
+      "nome": "32Gb ",
+      "categoria": "memoriaRam",
+      "preco": 400
+    },
+    {
+      "id": 10873853,
+      "nome": "ASROCK",
+      "categoria": "placaMae",
+      "preco": 760
+    },
+    {
+      "id": 694340051,
+      "nome": "HP",
+      "categoria": "mouse",
+      "preco": 32
+    },
+    {
+      "id": 493107517,
+      "nome": "Teste preço",
+      "categoria": "processador",
+      "preco": 20
+    }
+  ],
+  "login": [
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 1
+    },
+    {
+      "id": 502676766,
+      "email": "pedro@email.com",
+      "senha": "123"
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676767
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676768
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676769
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676770
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676771
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676772
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676773
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676774
+    },
+    {
+      "email": "ana@email.com",
+      "senha": "123",
+      "id": 502676775
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676776
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676777
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676778
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676779
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676780
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676781
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676782
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676783
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676784
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676785
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676786
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676787
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676788
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676789
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676790
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676791
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676792
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676793
+    },
+    {
+      "email": "teste@email.com",
+      "senha": "123",
+      "id": 502676794
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676795
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676796
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676797
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676798
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676799
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676800
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676801
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676802
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676803
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676804
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676805
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676806
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676807
+    },
+    {
+      "email": "teste@email.com",
+      "senha": "123",
+      "id": 502676808
+    },
+    {
+      "email": "ana@email.com",
+      "senha": "123",
+      "id": 502676809
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676810
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676811
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676812
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676813
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676814
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676815
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676816
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676817
+    },
+    {
+      "email": "nicolas@email.com",
+      "senha": "123",
+      "id": 502676818
+    },
+    {
+      "email": "pedro@email.com",
+      "senha": "123",
+      "id": 502676819
+    }
+  ],
+  "clientes": [
+    {
+      "id": 26327681,
+      "nome": "Nicolas",
+      "nascimento": "2002-09-12",
+      "cpf": "98765432102",
+      "cep": "11020340",
+      "telefone": "1134567890",
+      "email": "nicolas@email.com",
+      "genero": "masculino"
+    },
+    {
+      "id": 736008588,
+      "nome": "Teste",
+      "nascimento": "2001-09-12",
+      "cpf": "98765432132",
+      "cep": "11020332",
+      "telefone": "11345673334",
+      "email": "teste@email.com",
+      "genero": "feminino"
+    },
+    {
+      "id": 44025360,
+      "nome": "Ana",
+      "nascimento": "2003-05-05",
+      "cpf": "12303923023",
+      "cep": "32908312",
+      "telefone": "42323213232",
+      "email": "ana@email.com",
+      "genero": "masculino"
+    },
+    {
+      "id": 502676766,
+      "nome": "pedro",
+      "nascimento": "2002-09-12",
+      "cpf": "12331234123",
+      "cep": "13123123",
+      "telefone": "31231241242",
+      "email": "pedro@email.com",
+      "genero": "masculino"
+    }
+  ],
+  "pedidos": [
+    {
+      "id": 394991640,
+      "status": "Pendente",
+      "cliente": 502676766,
+      "produto": [
+        832020957
+      ],
+      "detail": [
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento",
+          "preco": 111
+        }
+      ],
+      "precoPedido": 111
+    },
+    {
+      "id": 726124737,
+      "status": "Processando",
+      "cliente": 26327681,
+      "produto": [
+        715115228
+      ],
+      "detail": [
+        {
+          "nome": "AMD",
+          "categoria": "mouse",
+          "preco": 321
+        }
+      ],
+      "precoPedido": 321
+    },
+    {
+      "id": 436481923,
+      "status": "Concluido",
+      "cliente": 26327681,
+      "produto": [
+        715115228,
+        832020957
+      ],
+      "detail": [
+        {
+          "nome": "AMD",
+          "categoria": "mouse",
+          "preco": 321
+        },
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento",
+          "preco": 111
+        }
+      ],
+      "precoPedido": 432
+    },
+    {
+      "id": 24878828,
+      "status": "Pendente",
+      "cliente": 26327681,
+      "produto": [
+        575953112,
+        439989779
+      ],
+      "detail": [
+        {
+          "nome": "GFallen",
+          "categoria": "teclado",
+          "preco": 200
+        },
+        {
+          "nome": "Logitech",
+          "categoria": "processador",
+          "preco": 100
+        }
+      ],
+      "precoPedido": 300
+    },
+    {
+      "id": 767996094,
+      "status": "Concluido",
+      "cliente": 736008588,
+      "produto": [
+        832020957,
+        267415355,
+        932961919
+      ],
+      "detail": [
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento",
+          "preco": 111
+        },
+        {
+          "nome": "AMD Ryzen",
+          "categoria": "processador",
+          "preco": 321
+        },
+        {
+          "nome": "Benq 240HZ",
+          "categoria": "monitor",
+          "preco": 2000
+        }
+      ],
+      "precoPedido": 2432
+    },
+    {
+      "id": 344194364,
+      "status": "Cancelado",
+      "cliente": 44025360,
+      "produto": [
+        10873853
+      ],
+      "detail": [
+        {
+          "nome": "ASROCK",
+          "categoria": "placaMae",
+          "preco": 760
+        }
+      ],
+      "precoPedido": 760
+    },
+    {
+      "id": 236324201,
+      "status": "Pendente",
+      "cliente": 502676766,
+      "produto": [
+        715115228,
+        832020957
+      ],
+      "detail": [
+        {
+          "nome": "AMD",
+          "categoria": "mouse",
+          "preco": 321
+        },
+        {
+          "nome": "HD 500GB",
+          "categoria": "armazenamento",
+          "preco": 111
+        }
+      ],
+      "precoPedido": 432
+    }
+  ]
+}

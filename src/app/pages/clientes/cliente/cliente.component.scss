@@ -1,0 +1,39 @@
+app-container{
+  margin-left: 45%;
+  
+  .grid-container {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .grid-item {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.button-group {
+  margin-top: 16px;
+  justify-content: space-between;
+}
+
+.buttonAdicionar {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.modal-buttons {
+  margin-top: 16px;
+  justify-content: space-between;
+}
+
+}

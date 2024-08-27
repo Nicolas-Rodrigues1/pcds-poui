@@ -1,0 +1,16 @@
+app-container{
+    margin-top: 10px;
+    
+    button-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    justify-content: flex-end; /* Alinha os botões à direita */
+}
+
+
+po-dynamic-form {
+    margin-bottom: 16px; /* Espaçamento entre o formulário e os botões */
+}
+}
+  

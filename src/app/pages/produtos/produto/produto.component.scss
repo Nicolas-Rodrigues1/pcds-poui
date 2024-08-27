@@ -1,0 +1,53 @@
+app-container {
+  margin-left: 20%;
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 16px;
+    padding: 16px;
+    max-height: calc(3 * 200px + 48px); /* Altura máxima para 3 linhas de produtos */
+    overflow-y: auto; /* Adiciona rolagem se necessário */
+  }
+
+  .grid-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid-item p {
+    margin: 0;
+    font-size: 0.9em;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .buttonAdicionar {
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .paginacao {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+}
